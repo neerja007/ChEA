@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)http://ma.tt/2003/01/the-blogging-software-dilemma/ -->
+<html lang="en-US"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>The Blogging Software Dilemma | Matt Mullenweg</title>
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="http://ma.tt/blog/xmlrpc.php">
+	<!--[if lt IE 9]>
+	<script src="http://s.ma.tt/blog-content/themes/twentythirteen/js/html5.js"></script>
+	<![endif]-->
+	<link rel="alternate" type="application/rss+xml" title="Matt Mullenweg » Feed" href="http://ma.tt/feed/">
+<link rel="alternate" type="application/rss+xml" title="Matt Mullenweg » Comments Feed" href="http://ma.tt/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Matt Mullenweg » The Blogging Software Dilemma Comments Feed" href="http://ma.tt/2003/01/the-blogging-software-dilemma/feed/">
+<link rel="stylesheet" id="jetpack_likes-css" href="./BloggingSoftwareDilemma_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack-widgets-css" href="./BloggingSoftwareDilemma_files/widgets.css" type="text/css" media="all">
+<link rel="stylesheet" id="twentythirteen-fonts-css" href="./BloggingSoftwareDilemma_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="genericons-css" href="./BloggingSoftwareDilemma_files/genericons.css" type="text/css" media="all">
+<link rel="stylesheet" id="twentythirteen-style-css" href="./BloggingSoftwareDilemma_files/style(1).css" type="text/css" media="all">
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentythirteen-ie-css'  href='http://s.ma.tt/blog-content/themes/twentythirteen/css/ie.css?ver=2013-07-18' type='text/css' media='all' />
+<![endif]-->
+<link rel="stylesheet" id="sharedaddy-css" href="./BloggingSoftwareDilemma_files/sharing.css" type="text/css" media="all">
+<script src="./BloggingSoftwareDilemma_files/quant.js" async="" type="text/javascript"></script><script type="text/javascript" src="./BloggingSoftwareDilemma_files/jquery.js"></script>
+<script type="text/javascript" src="./BloggingSoftwareDilemma_files/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="./BloggingSoftwareDilemma_files/postmessage.js"></script>
+<script type="text/javascript" src="./BloggingSoftwareDilemma_files/jquery.inview.js"></script>
+<script type="text/javascript" src="./BloggingSoftwareDilemma_files/jquery.jetpack-resize.js"></script>
+<script type="text/javascript" src="./BloggingSoftwareDilemma_files/jquery.atd.textarea.js"></script>
+<script type="text/javascript" src="./BloggingSoftwareDilemma_files/csshttprequest.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://ma.tt/blog/xmlrpc.php?rsd">
+<link rel="prev" title="PHP Blogtimes for b2" href="http://ma.tt/2003/01/php-blogtimes-for-b2/">
+<link rel="next" title="Winamp" href="http://ma.tt/2003/01/winamp/">
+<meta name="generator" content="WordPress 3.7-alpha-25157">
+<link rel="canonical" href="./BloggingSoftwareDilemma_files/BloggingSoftwareDilemma.htm">
+<link rel="shortlink" href="http://wp.me/p4oB3-6x">
+<script type="text/javascript" src="./BloggingSoftwareDilemma_files/suggest.js"></script>
+<link rel="stylesheet" href="http://ma.tt/blog-content/plugins/matts-community-tags/suggest.css">
+<script type="text/javascript">
+<!--
+var $j = jQuery.noConflict();
+
+$j( document ).ready( function(){
+	$j( '#tagthis' ).html('<p>Recognize someone in this photo? Tag them.</p><form action="/index.php?addtag=go" method="post" id="tagthisform"><p>Separate multiple people with commas, example: Elvis Presley, Britney Spears.</p><p><input type="text" id="mct_people" name="mct_people" size="30" /> <input type="hidden" value="405" name="post_id" id="post_id" /><input type="button" value="Tag People &raquo;" id="tagthisbutt" /></p></form>');
+	$j( '#tagthisbutt' ).click( mct_process_form );
+	$j( '#mct_people' ).suggest( 'http://ma.tt/index.php?suggesttag=go', { onSelect: function() { mct_process_form(); } } );
+
+} );
+
+function mct_process_form() {
+	var mct_people = $j( '#mct_people' ).value;
+	var mct_people = $j( '#post_id' ).value;
+	$j.post( 'http://ma.tt/index.php?addtag=go', $j("#tagthis :input").serializeArray(), function(data){ $j('#tagthis').html('<p>Thank you for your submission, it is in moderation and should appear shortly.'); } );
+}
+-->
+</script>
+<link rel="stylesheet" type="text/css" media="screen" href="./BloggingSoftwareDilemma_files/atd.css"><style>.AtD_proofread_button, .AtD_edit_button { margin:5px; }</style>
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://s.ma.tt/blog/wp-includes/wlwmanifest.xml"> 
+
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Blogging Software Dilemma">
+<meta property="og:url" content="http://ma.tt/2003/01/the-blogging-software-dilemma/">
+<meta property="og:description" content="This site is beginning to grow and grow, and forward compatibility has lately been in my mind more. Several days ago this site passed twenty thousand unique visitors, and more than seventy thousand...">
+<meta property="og:site_name" content="Matt Mullenweg">
+<meta name="twitter:site" content="@jetpack">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/x-icon" href="http://s.ma.tt/blog-content/themes/ma.tt/i/favicon.ico">
+	<style type="text/css" id="twentythirteen-header-css">
+			.site-header {
+			background: url(http://s.ma.tt/blog-content/themes/twentythirteen/images/headers/circle.png) no-repeat scroll top;
+			background-size: 1600px auto;
+		}
+		</style>
+	<link rel="stylesheet" type="text/css" id="gravatar-card-css" href="./BloggingSoftwareDilemma_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="./BloggingSoftwareDilemma_files/services.css"><style type="text/css" id="GINGER_SOFATWARE_style">.GINGER_SOFATWARE_noMark { background : transparent; }  .GINGER_SOFATWARE_wrapper{ position: absolute; overflow: hidden; margin: 0px; padding: 0px; border: 0px solid transparent } .GINGER_SOFATWARE_contour { position : absolute; margin: 0px; }  .GINGER_SOFATWARE_richText { margin : 0px; padding-bottom: 3px; border-width: 0px; border-color: transparent; display: block; color: transparent; -webkit-text-fill-color: transparent; overflow: hidden; white-space: pre-wrap;}  .GINGER_SOFATWARE_inputWrapper .GINGER_SOFATWARE_richText {position: absolute;}  .GINGER_SOFATWARE_canvas { display:none; background-repeat:no-repeat;}  .GINGER_SOFATWARE_control .GINGER_SOFATWARE_correct, .GINGER_SOFATWARE_control .GINGER_SOFATWARE_SpellingCorrect, .GINGER_SOFATWARE_control .GINGER_SOFATWARE_spelling, .GINGER_SOFATWARE_control .GINGER_SOFATWARE_mark {border-top-left-radius:2px; border-top-right-radius:2px; border-bottom-right-radius:2px; border-bottom-left-radius:2px;} .GINGER_SOFATWARE_control .GINGER_SOFATWARE_correct, .GINGER_SOFATWARE_control .GINGER_SOFATWARE_SpellingCorrect, .GINGER_SOFATWARE_control .GINGER_SOFATWARE_spelling, .GINGER_SOFATWARE_control .GINGER_SOFATWARE_mark {background-image:url(data:image/gif;base64,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)!important;} .GINGER_SOFATWARE_control .GINGER_SOFATWARE_correct.GINGER_SOFATWARE_synonym, .GINGER_SOFATWARE_control .GINGER_SOFATWARE_SpellingCorrect.GINGER_SOFATWARE_synonym, .GINGER_SOFATWARE_control .GINGER_SOFATWARE_spelling.GINGER_SOFATWARE_synonym, .GINGER_SOFATWARE_control .GINGER_SOFATWARE_mark.GINGER_SOFATWARE_synonym {background-image:url(data:image/gif;base64,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)!important;} .GINGER_SOFATWARE_control .GINGER_SOFATWARE_correct.GINGER_SOFATWARE_noSuggestion, .GINGER_SOFATWARE_control .GINGER_SOFATWARE_SpellingCorrect.GINGER_SOFATWARE_noSuggestion, .GINGER_SOFATWARE_control .GINGER_SOFATWARE_spelling.GINGER_SOFATWARE_noSuggestion, .GINGER_SOFATWARE_control .GINGER_SOFATWARE_mark.GINGER_SOFATWARE_noSuggestion {background-image:url(data:image/gif;base64,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)!important;} .GINGER_SOFATWARE_richText .GINGER_SOFATWARE_correct, .GINGER_SOFATWARE_richText .GINGER_SOFATWARE_SpellingCorrect, .GINGER_SOFATWARE_richText .GINGER_SOFATWARE_spelling, .GINGER_SOFATWARE_richText .GINGER_SOFATWARE_mark {position:relative; background-image:none!important;} .GINGER_SOFATWARE_richText .GINGER_SOFATWARE_markHighlightLeft { position : absolute; left:-2px; top:0px; bottom:0px; width:2px;} .GINGER_SOFATWARE_richText .GINGER_SOFATWARE_markHighlightRight { position : absolute; right:-2px; top:0px; bottom:0px; width:2px;} .GINGER_SOFATWARE_richText .GINGER_SOFATWARE_markHighlightTop { position : absolute; left:0px; right:0px; top:-2px; height:3px;} .GINGER_SOFATWARE_richText .GINGER_SOFATWARE_markHighlightBottom { position : absolute; left:0px; right:0px; bottom:-2px; height:3px;}</style></head>
+
+<body class="single single-post postid-405 single-format-standard mp6" style="" ginger_sofatware_stylesheet="true" ginger_sofatware_doc="true">
+	<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header" role="banner">
+			<a class="home-link" href="http://ma.tt/" title="Matt Mullenweg" rel="home">
+				<h1 class="site-title">Matt Mullenweg</h1>
+				<h2 class="site-description">Unlucky in Cards</h2>
+			</a>
+
+			<div id="navbar" class="navbar">
+				<nav id="site-navigation" class="navigation main-navigation" role="navigation">
+					<h3 class="menu-toggle">Menu</h3>
+					<a class="screen-reader-text skip-link" href="http://ma.tt/2003/01/the-blogging-software-dilemma/#content" title="Skip to content">Skip to content</a>
+					<div class="menu-main-menu-container"><ul id="menu-main-menu" class="nav-menu"><li id="menu-item-42392" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-42392"><a href="http://ma.tt/">Home</a></li>
+<li id="menu-item-42393" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42393"><a href="http://ma.tt/about/">About</a></li>
+<li id="menu-item-42414" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42414"><a href="http://ma.tt/themes/">Themes</a></li>
+<li id="menu-item-42417" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42417"><a href="http://ma.tt/gallery/">Gallery</a></li>
+<li id="menu-item-42395" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42395"><a href="http://ma.tt/contact/">Contact</a></li>
+</ul></div>					<form role="search" method="get" class="search-form" action="http://ma.tt/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search …" value="" name="s" title="Search for:">
+				</label>
+				<input type="submit" class="search-submit" value="Search">
+			</form>				</nav><!-- #site-navigation -->
+			</div><!-- #navbar -->
+		</header><!-- #masthead -->
+
+		<div id="main" class="site-main">
+
+	<div id="primary" class="content-area">
+		<div id="content" class="site-content" role="main">
+
+						
+				
+<article id="post-405" class="post-405 post type-post status-publish format-standard hentry category-asides tag-general">
+	<header class="entry-header">
+		
+				<h1 class="entry-title">The Blogging Software&nbsp;Dilemma</h1>
+		
+		<div class="entry-meta">
+			<span class="date"><a href="./BloggingSoftwareDilemma_files/BloggingSoftwareDilemma.htm" title="Permalink to The Blogging Software Dilemma" rel="bookmark"><time class="entry-date" datetime="2003-01-24T16:00:12+00:00">January 24, 2003</time></a></span><span class="categories-links"><a href="http://ma.tt/category/asides/" title="View all posts in Asides" rel="category tag">Asides</a></span><span class="tags-links"><a href="http://ma.tt/tag/general/" rel="tag">General</a></span><span class="author vcard"><a class="url fn n" href="http://ma.tt/author/saxmatt/" title="View all posts by Matt" rel="author">Matt</a></span>					</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+		<div class="entry-content">
+		<p>This site is beginning to grow and grow, and <a title="Wonderful article by Mr. Zeldman" href="http://www.digital-web.com/features/feature_2002-09.shtml">forward compatibility</a> has lately been in my mind more. Several days ago this site passed twenty thousand unique visitors, and more than seventy thousand hits, since late August. I recently converted everything (except the photolog) to XHTML 1.1, which was nice, but it’s not the markup I’m worried about. My <a href="http://www.cafelog.com/">logging software</a> hasn’t been updated for months, and the main developer has disappeared, and I can only hope that he’s okay.</p>
+<p>What to do? Well, <a title="TextPattern from Dean Allen" href="http://www.textpattern.com/">Textpattern</a> looks like everything I could ever want, but it doesn’t look like it’s going to be licensed under something politically I could agree with. Fortunately, b2/cafelog is GPL, which means that I could use the existing codebase to create a fork, integrating all the cool stuff that Michel would be working on right now if only he was around. The work would never be lost, as if I fell of the face of the planet a year from now, whatever code I made would be free to the world, and if someone else wanted to pick it up they could. I’ve decided that this the course of action I’d like to go in, now all I need is a name. What should it do? Well, it would be nice to have the flexibility of MovableType, the parsing of TextPattern, the hackability of b2, and the ease of setup of Blogger. Someday, right?</p>
+<p><ins datetime="2003-12-26T01:24:10-06:00">Update, 2003-12-26: This became <a href="http://wordpress.org/">WordPress</a>.</ins></p>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-email share-service-visible"><a rel="nofollow" class="share-email sd-button share-icon" href="http://ma.tt/2003/01/the-blogging-software-dilemma/?share=email&nb=1" target="_blank" title="Click to email this to a friend"><span>Email</span></a></li><li class="share-facebook"><a rel="nofollow" class="share-facebook sd-button share-icon" href="http://ma.tt/2003/01/the-blogging-software-dilemma/?share=facebook&nb=1" target="_blank" title="Share on Facebook" id="sharing-facebook-405"><span>Facebook<span class="share-count">142</span></span></a></li><li class="share-twitter"><a rel="nofollow" class="share-twitter sd-button share-icon" href="http://ma.tt/2003/01/the-blogging-software-dilemma/?share=twitter&nb=1" target="_blank" title="Click to share on Twitter" id="sharing-twitter-405"><span>Twitter<span class="share-count">140</span></span></a></li><li class="share-google-plus-1"><a rel="nofollow" class="share-google-plus-1 sd-button share-icon" href="http://ma.tt/2003/01/the-blogging-software-dilemma/?share=google-plus-1&nb=1" target="_blank" title="Click to share on Google+" id="sharing-google-405"><span>Google +1</span></a></li><li class="share-end"></li></ul></div></div></div><div class="sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-loaded" id="like-post-wrapper-1047865-405-522aec369d913" data-src="//widgets.wp.com/likes/#blog_id=1047865&amp;post_id=405&amp;origin=ma.tt&amp;obj_id=1047865-405-522aec369d913" data-name="like-post-frame-1047865-405-522aec369d913"><h3 class="sd-title">Like this:</h3><div class="post-likes-widget-placeholder" style="height: 55px; display: none;"><span class="button"><span>Like</span></span> <span class="loading">Loading...</span></div><iframe class="post-likes-widget jetpack-likes-widget" name="like-post-frame-1047865-405-522aec369d913" height="55px" width="100%" frameborder="0" src="./BloggingSoftwareDilemma_files/saved_resource.htm" style="display: inline;"></iframe><span class="sd-text-color"></span><a class="sd-link-color"></a></div>			</div><!-- .entry-content -->
+	
+	<footer class="entry-meta">
+		
+			</footer><!-- .entry-meta -->
+</article><!-- #post -->
+					<nav class="navigation post-navigation" role="navigation">
+		<h1 class="screen-reader-text">Post navigation</h1>
+		<div class="nav-links">
+
+			<a href="http://ma.tt/2003/01/php-blogtimes-for-b2/" rel="prev"><span class="meta-nav">←</span> PHP Blogtimes for&nbsp;b2</a>			<a href="http://ma.tt/2003/01/winamp/" rel="next">Winamp <span class="meta-nav">→</span></a>
+		</div><!-- .nav-links -->
+	</nav><!-- .navigation -->
+					
+<div id="comments" class="comments-area">
+
+			<h2 class="comments-title">
+			114 thoughts on “<span>The Blogging Software&nbsp;Dilemma</span>”		</h2>
+
+		<ol class="comment-list">
+					<li id="comment-445" class="comment even thread-even depth-1">
+			<article id="div-comment-445" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./BloggingSoftwareDilemma_files/b250c1bc873a55a891a5ea553fbdee74" class="avatar avatar-60 photo grav-hashed grav-hijack" height="60" width="60" id="grav-b250c1bc873a55a891a5ea553fbdee74-0">						<b class="fn"><a href="http://zed1.com/b2/" rel="external nofollow" class="url">mike</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://ma.tt/2003/01/the-blogging-software-dilemma/#comment-445">
+							<time datetime="2003-01-25T15:58:02+00:00">
+								January 25, 2003 at 3:58 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Matt,<br>
+If you’re serious about forking b2 I would be interested in contributing. I’m sure there are one or two others in the community who would be too. Perhaps a post to the B2 forum, suggesting a fork would be a good starting point.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-2352" class="trackback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://ijsm.org/archives/2004/01/28/happy-belated-birthday-wordpress/" rel="external nofollow" class="url">The Indiana Jones School of Management</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-2411" class="comment even thread-even depth-1">
+			<article id="div-comment-2411" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./BloggingSoftwareDilemma_files/a3a949142350504847bcd085bce4eb0d" class="avatar avatar-60 photo grav-hashed grav-hijack" height="60" width="60" id="grav-a3a949142350504847bcd085bce4eb0d-0">						<b class="fn"><a href="http://blog.sushubh.com/all.php" rel="external nofollow" class="url">Sushubh</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://ma.tt/2003/01/the-blogging-software-dilemma/#comment-2411">
+							<time datetime="2004-02-02T14:57:43+00:00">
+								February 2, 2004 at 2:57 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>The day has arrived!</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-2725" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-2725" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./BloggingSoftwareDilemma_files/f9b5840d0e169aa37499fd049ebf0b2d" class="avatar avatar-60 photo grav-hashed grav-hijack" height="60" width="60" id="grav-f9b5840d0e169aa37499fd049ebf0b2d-0">						<b class="fn"><a href="http://none/" rel="external nofollow" class="url">John</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://ma.tt/2003/01/the-blogging-software-dilemma/#comment-2725">
+							<time datetime="2004-02-22T16:02:50+00:00">
+								February 22, 2004 at 4:02 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>oh yea!</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-9882" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://almaren.ch/archives/2004/11/25/entretien-de-matt-mullenweg-avec-digital-web-magazine/" rel="external nofollow" class="url">Entretien de Matt Mullenweg avec Digital Web Magazine (Almaren)</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-25700" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://budi.wordpress.com/2005/09/16/the-blogging-software-dillema/" rel="external nofollow" class="url">budi on wordpress.com » The Blogging Software Dillema</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-27268" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://budi.sukmana.com/?p=70" rel="external nofollow" class="url">A thought of Inspiration at Simply Lotus</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-41642" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-41642" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./BloggingSoftwareDilemma_files/7667dd8865dbaadcff2faa9500f3f3f5" class="avatar avatar-60 photo grav-hashed grav-hijack" height="60" width="60" id="grav-7667dd8865dbaadcff2faa9500f3f3f5-0">						<b class="fn"><a href="http://www.linklog.org/" rel="external nofollow" class="url">Linklog</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://ma.tt/2003/01/the-blogging-software-dilemma/#comment-41642">
+							<time datetime="2006-01-12T14:21:12+00:00">
+								January 12, 2006 at 2:21 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>That disappearing developer added a good deal of truly hitchcockian suspense to the whole history of WordPress. Is he alive, at least?</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-43997" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://mucky-duck.me.uk/Blog/wordpress/?p=285" rel="external nofollow" class="url">The White Blog » Happy Birthday WordPress!</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-44035" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://blog.23corner.com/2006/01/24/1198/" rel="external nofollow" class="url">Happy Birthday, Wordpress ! :-) at äºŒä¸‰è¡—è§’</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-44365" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://popagandhi.com/210/wordpress-turns-three/" rel="external nofollow" class="url">Popagandhi » Blog Archive » Wordpress Turns Three</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-44477" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.heritage-tech.net/203/happy-third-birthday-wordpress/" rel="external nofollow" class="url">Happy Third Birthday WordPress! - HTNet</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-44506" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.texto.de/texto/happy-birthday-wordpress/" rel="external nofollow" class="url">Happy Birthday WordPress</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-44512" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.phoenixrealm.com/2006/01/25/wordpress-turns-three/" rel="external nofollow" class="url">Phoenixrealm » WordPress Turns Three</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-44530" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.labrujulaverde.com/2006/01/25/hoy-celebramos-dos-cumpleanos-blogpocket-y-wordpress/" rel="external nofollow" class="url">La brujula verde » Hoy celebramos dos cumpleaÃ±os: Blogpocket y WordPress</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-89651" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://ravikiran.weblogs.us/archives/78" rel="external nofollow" class="url">links for 2006-05-12 at Known Stranger</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-195901" class="comment even thread-even depth-1">
+			<article id="div-comment-195901" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./BloggingSoftwareDilemma_files/e71486d6f8fe2954b12a9a26eaffad45" class="avatar avatar-60 photo grav-hashed grav-hijack" height="60" width="60" id="grav-e71486d6f8fe2954b12a9a26eaffad45-0">						<b class="fn"><a href="http://foolswisdom.com/~lloyd" rel="external nofollow" class="url">Lloyd D Budd</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://ma.tt/2003/01/the-blogging-software-dilemma/#comment-195901">
+							<time datetime="2006-09-21T16:44:51+00:00">
+								September 21, 2006 at 4:44 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>What a different blogging world it might have been if TextPattern adopted the GPL license earlier.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-240435" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.bloggingpro.com/archives/2006/10/30/interview-with-matt-mullenweg/" rel="external nofollow" class="url">&nbsp; Interview with Matt Mullenweg&nbsp;by&nbsp;Blogging Pro</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-240748" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://nanoblogs.de/2006/10/30/the-day-wordpress-was-born/" rel="external nofollow" class="url">The day WordPress was born | nanoblogs[.de]</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-240856" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://da.vebrig.gs/2006/10/30/when-wordpress-was-born/" rel="external nofollow" class="url">Writing Home » Blog Archive » When WordPress was born…</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-244205" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://iface.wordpress.com/2006/11/02/wordpress-past-and-future/" rel="external nofollow" class="url">Wordpress - Past And Future « Abhijit Nadgouda @ iface</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-412665" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://mikeabundo.com/2007/01/25/happy-fourth-birthday-wordpress/" rel="external nofollow" class="url">Happy Fourth Birthday, WordPress!</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-412669" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://a-bishop.spb.ru/archives/923" rel="external nofollow" class="url">DELETE YOURSELF! » Blog Archive » WordPress Ð¸ÑÐ¿Ð¾Ð»Ð½Ð¸Ð»Ð¾ÑÑŒ 4 Ð³Ð¾Ð´Ð°!</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-412678" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://kadu.ducz.com/?p=647" rel="external nofollow" class="url">AniversÃ¡rio de 4 anos do WordPress at blog palmeirense falador</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-412681" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://thermalblog.co.uk/happy-birthday-wordpress/" rel="external nofollow" class="url">Happy Birthday WordPress! » Thermal</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-412683" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.lawsy.net/wordpress-turns-four.html" rel="external nofollow" class="url">Wordpress Turns four · Lawsy.net</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-412687" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://essentialkeystrokes.com/happy-birthday-wordpress-you-are-4-now/" rel="external nofollow" class="url">Essential Keystrokes » Happy Birthday Wordpress - You Are 4 Now</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-412689" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://blogvecindad.com/4-anos-de-wordpress/2007/01/25" rel="external nofollow" class="url">Blog Vecindad GrÃ¡fica DiseÃ±o GrÃ¡fico » Blog Archive » 4 aÃ±os de Wordpress</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-412695" class="comment even thread-even depth-1">
+			<article id="div-comment-412695" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./BloggingSoftwareDilemma_files/725a65c47ec4839e3b8c071e7d056b05" class="avatar avatar-60 photo grav-hashed grav-hijack" height="60" width="60" id="grav-725a65c47ec4839e3b8c071e7d056b05-0">						<b class="fn"><a href="http://www.einfach-persoenlich.de/" rel="external nofollow" class="url">Joerg Petermann</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://ma.tt/2003/01/the-blogging-software-dilemma/#comment-412695">
+							<time datetime="2007-01-25T08:40:45+00:00">
+								January 25, 2007 at 8:40 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Time will bring it.<br>
+Happy Birthday Matt!</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-412701" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://jaroche.wordpress.com/2007/01/25/4to-aniversario-de-wordpress/" rel="external nofollow" class="url">4to aniversario de Wordpress « Javier Aroche</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-412705" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://bueltge.de/wordpress-wird-vier-ich-gratuliere/373" rel="external nofollow" class="url">WordPress wird vier - ich gratuliere | bueltge.de [by:ltge.de]</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-412710" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.bernabauer.com/wordpress-faz-4-anos/" rel="external nofollow" class="url">Wordpress faz 4 anos :: bernabauer.com - Noticias de Tecnologia todos os dias.</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-412711" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://noticias.blogsya.net/archives/79" rel="external nofollow" class="url">Noticias » Blog Archive » WordPress celebra su cuarto aniversario</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-412734" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.litwc.com/2007/01/25/wordpress-out-of-the-terrible-2-3s-and-now-4-years-old/" rel="external nofollow" class="url">Living in the Whine Country » Archive » WordPress, out of the terrible 2-3’s and now 4 years old!</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-413089" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://superfineshag.org/2007/01/30/sphere-and-the-birth-of-wordpress/" rel="external nofollow" class="url">Sphere, and the birth of Wordpress at SuperFineShag</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-413134" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.blogherald.com/2007/01/31/wordpress-wednesday-happy-birthday-and-more-wordpress-21/" rel="external nofollow" class="url">WordPress Wednesday: Happy Birthday and More WordPress 2.1 at The Blog Herald</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-413502" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://michal.osmenda.com/2007/02/04/tak-stalo-sie-swiatlo/" rel="external nofollow" class="url">Tak staÅ‚o siÄ™ Å›wiatÅ‚o at ITblog</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-423273" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.makethepress.com/a-neat-post-about-the-creation-of-wordpress-blogging-software/" rel="external nofollow" class="url">Make The Press.com » A neat post about the creation of wordpress blogging software</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-437642" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.marcelor.com/2008/01/wordpress-cumple-5-anos.html" rel="external nofollow" class="url">Wordpress cumple 5 años | Blog de Marcelo Ramos | Lo que hago, lo que me interesa, lo que me llama la atención</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-437686" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.buscandolibertad.es/2008/01/24/nuestro-querido-wordpress-cumple-5-anos/" rel="external nofollow" class="url">Nuestro querido Wordpress cumple 5 años — Buscando Libertad</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-437696" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://elclan.wordpress.com/2008/01/24/wordpress-crece/" rel="external nofollow" class="url">Wordpress crece « El Clan</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-437699" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://alt1040.com/archivo/2008/01/24/wordpress-cumple-5-anos/" rel="external nofollow" class="url">WordPress cumple 5 años</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-437704" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://internetng.dit.upm.es/2008/01/24/wordpress-cumple-5-anos/" rel="external nofollow" class="url">Internet de Nueva Generación » Blog Archive » Wordpress cumple 5 años</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-437719" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://mangasverdes.es/2008/01/24/5-anos-de-wordpress/" rel="external nofollow" class="url">5 años de WordPress | Mangas Verdes</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-437721" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.wordpress-fr.net/blog/wordpress-a-5-ans" rel="external nofollow" class="url">WordPress a 5 ans | WordPress Francophone</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-437727" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://betacontinua.com/blog/2008/01/24/wordpress-cumple-su-primer-lustro/" rel="external nofollow" class="url">betacontinua » » Wordpress cumple su primer lustro</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-437728" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://jocluis.wordpress.com/2008/01/24/wordpress-de-fiesta-hoy-cumple-5-anos/" rel="external nofollow" class="url">Wordpress de fiesta, hoy cumple 5 años « LINKTEXT.NET l Noticias de interés</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-437746" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://sergiomelzner.com.ar/wordpress/%c2%a1feliz-5-anos/" rel="external nofollow" class="url">¡Feliz 5 años! | Sergio Melzner | Freelancer fanático perdido en internet</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-437747" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.astroblogs.nl/2008/01/24/wp-is-jarig/" rel="external nofollow" class="url">WP is jarigbijAstroblogs</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-437759" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://daslive.net/wordpress-cumple-5-anos/" rel="external nofollow" class="url">daslive.NET » Blog Archive » Wordpress Cumple 5 Años</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-437777" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.welovewp.com/blog/a-look-back-in-time/" rel="external nofollow" class="url">We Love WP</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-437787" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://blog.bitacoraenlared.com/informatica/?p=20" rel="external nofollow" class="url">Informatica e Internet » WordPress cumple 5 años</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-437875" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://br-linux.org/2008/5-anos-do-anuncio-original-do-wordpress/" rel="external nofollow" class="url">5 anos do anúncio original do Wordpress</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-437902" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://hackwordpress.com/the-prelude-to-wordpress/" rel="external nofollow" class="url">The Prelude to WordPress</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-437908" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://area303.wordpress.com/2008/01/26/dicen-en-la-web-4/" rel="external nofollow" class="url">Dicen en la web « @rea 303</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-438511" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-438511" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./BloggingSoftwareDilemma_files/75dfbc85d9af3dd5816bc86ff276279a" class="avatar avatar-60 photo grav-hashed grav-hijack" height="60" width="60" id="grav-75dfbc85d9af3dd5816bc86ff276279a-0">						<b class="fn"><a href="http://eight6.com/" rel="external nofollow" class="url">Noel</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://ma.tt/2003/01/the-blogging-software-dilemma/#comment-438511">
+							<time datetime="2008-02-07T15:51:29+00:00">
+								February 7, 2008 at 3:51 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>It’s pretty amazing to read this post and realize that it’s only been 4 years… Did I say only? That’s amazing! It feels like I’ve ALWAYS been running WordPress!</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-442881" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://changingway.org/2008/04/29/automattic-making-money-contents-and-conclusions/" rel="external nofollow" class="url">Automattic Making Money: Contents and Conclusions « Changing Way</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-446225" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-446225" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./BloggingSoftwareDilemma_files/f8589344783d1a93a51e1d707ad921af" class="avatar avatar-60 photo grav-hashed grav-hijack" height="60" width="60" id="grav-f8589344783d1a93a51e1d707ad921af-0">						<b class="fn">saber</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://ma.tt/2003/01/the-blogging-software-dilemma/#comment-446225">
+							<time datetime="2008-06-22T09:52:28+00:00">
+								June 22, 2008 at 9:52 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thanks Matt, WordPress is cool enough as it is but i think you can still make it better by doing it the Microsoft way like copying everything from Movable Type, Text Patten and the whole lot</p>
+<p>Then we can have the best of everything plus this has worked for Microsoft they are still on top now and probably will be</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-456600" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.ayongeblog.com/2009/01/21/oleh-oleh-dari-wordcamp-indonesia-2009/" rel="external nofollow" class="url">Oleh-oleh dari WordCamp Indonesia 2009</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-456642" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://ryankoesuma.com/notes-from-wordcamp-indonesia-2009/" rel="external nofollow" class="url">Notes from Wordcamp Indonesia 2009 | RyanKoesuma.com</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-456733" class="comment even thread-even depth-1">
+			<article id="div-comment-456733" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./BloggingSoftwareDilemma_files/aac73afbedf920e220e552d488eebe3d" class="avatar avatar-60 photo grav-hashed grav-hijack" height="60" width="60" id="grav-aac73afbedf920e220e552d488eebe3d-0">						<b class="fn"><a href="http://http//okneil.com" rel="external nofollow" class="url">Neil</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://ma.tt/2003/01/the-blogging-software-dilemma/#comment-456733">
+							<time datetime="2009-01-24T18:34:31+00:00">
+								January 24, 2009 at 6:34 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Happy Birthday folks!!</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-456738" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://ma.tt/2009/01/blogging-software-dilemma/" rel="external nofollow" class="url">Blogging Software Dilemma — Matt Mullenweg</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-456763" class="comment even thread-even depth-1">
+			<article id="div-comment-456763" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./BloggingSoftwareDilemma_files/b3e0451fe23da19970d48f1afdbff436" class="avatar avatar-60 photo grav-hashed grav-hijack" height="60" width="60" id="grav-b3e0451fe23da19970d48f1afdbff436-0">						<b class="fn"><a href="http://thenextcorner.net/" rel="external nofollow" class="url">Dennis Goedegebuure</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://ma.tt/2003/01/the-blogging-software-dilemma/#comment-456763">
+							<time datetime="2009-01-24T23:47:45+00:00">
+								January 24, 2009 at 11:47 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Historic post! Congrats today and looking forward to the coming years and development.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-456786" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-456786" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./BloggingSoftwareDilemma_files/e72bb7076fa751a7b4ddf5c1702e5ab6" class="avatar avatar-60 photo grav-hashed grav-hijack" height="60" width="60" id="grav-e72bb7076fa751a7b4ddf5c1702e5ab6-0">						<b class="fn"><a href="http://www.twitter.com/brandonacox" rel="external nofollow" class="url">Brandon Cox</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://ma.tt/2003/01/the-blogging-software-dilemma/#comment-456786">
+							<time datetime="2009-01-25T04:13:47+00:00">
+								January 25, 2009 at 4:13 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>It’s like WordPress is turning 42 in internet years! Happy B-Day!</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-456788" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.egracecreative.com/2009/01/24/happy-birthday-wordpress-wp-turns-42-in-internet-years/" rel="external nofollow" class="url">Happy Birthday WordPress! WP Turns 42 in Internet Years | eGrace Creative Web Solutions</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-456790" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-456790" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./BloggingSoftwareDilemma_files/3abfb0e39a7adbf41c3036c467a161f5" class="avatar avatar-60 photo grav-hashed grav-hijack" height="60" width="60" id="grav-3abfb0e39a7adbf41c3036c467a161f5-0">						<b class="fn"><a href="http://www.pixelapes.com/" rel="external nofollow" class="url">Alex Leonard</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://ma.tt/2003/01/the-blogging-software-dilemma/#comment-456790">
+							<time datetime="2009-01-25T04:55:03+00:00">
+								January 25, 2009 at 4:55 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Quite cool reading the post that started it all.</p>
+<p>Congrats on reaching birthday number 6 <img src="./BloggingSoftwareDilemma_files/icon_smile.gif" alt=":)" class="wp-smiley"> </p>
+<p>Here’s to many more and keep up the incredible work!</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-456798" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://pundit.blogpeoria.com/2009/01/25/site-news-anniversaries-blogoversaries-and-updates/" rel="external nofollow" class="url">Site news: Anniversaries, Blogoversaries and updates | Peoria Pundit</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-456817" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-456817" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./BloggingSoftwareDilemma_files/0c7de27d12098a36df8d5b6c0f86d094" class="avatar avatar-60 photo grav-hashed grav-hijack" height="60" width="60" id="grav-0c7de27d12098a36df8d5b6c0f86d094-0">						<b class="fn"><a href="http://wpcult.com/" rel="external nofollow" class="url">TheFrosty</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://ma.tt/2003/01/the-blogging-software-dilemma/#comment-456817">
+							<time datetime="2009-01-25T16:47:46+00:00">
+								January 25, 2009 at 4:47 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Glad to be part of the WordPress history!</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-456921" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://pelepahpisang.wordpress.com/2009/01/28/oleh-oleh-inspirasi-dan-pengetahuan-dari-matt-mullenweg/" rel="external nofollow" class="url">Oleh-oleh Inspirasi dan Pengetahuan dari Matt Mullenweg « Hidup Sudah Semakin Susah</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-456972" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-456972" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./BloggingSoftwareDilemma_files/c2b353923d22e8291d5929ff7188b2b9" class="avatar avatar-60 photo grav-hashed grav-hijack" height="60" width="60" id="grav-c2b353923d22e8291d5929ff7188b2b9-0">						<b class="fn"><a href="http://www.pandeblog.es/" rel="external nofollow" class="url">Pande</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://ma.tt/2003/01/the-blogging-software-dilemma/#comment-456972">
+							<time datetime="2009-01-28T14:50:51+00:00">
+								January 28, 2009 at 2:50 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>6 years!!!, my daughter 6 th birthday was two mondays ago…</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-457099" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://ekakurniawan.com/blog/kompas-suka-tidak-teliti-790.php" rel="external nofollow" class="url">Kompas Suka Tidak Teliti</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-462334" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://blog.wordpress-deutschland.org/2009/05/27/wordpress-von-der-idee-zum-ersten-release.html" rel="external nofollow" class="url">WordPress - von der Idee zum ersten Release - aber das ist eine andere Geschichte, WordPress, Matt, Little, „WordPress, Mike - WordPress Deutschland Blog</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-462337" class="comment even thread-even depth-1">
+			<article id="div-comment-462337" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./BloggingSoftwareDilemma_files/0f6545c374b3370fb1c45a8fb91e64db" class="avatar avatar-60 photo grav-hashed grav-hijack" height="60" width="60" id="grav-0f6545c374b3370fb1c45a8fb91e64db-0">						<b class="fn"><a href="http://www.my-magix.de/" rel="external nofollow" class="url">ach1m</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://ma.tt/2003/01/the-blogging-software-dilemma/#comment-462337">
+							<time datetime="2009-05-27T04:31:41+00:00">
+								May 27, 2009 at 4:31 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Congrats Matt <img src="./BloggingSoftwareDilemma_files/icon_smile.gif" alt=":)" class="wp-smiley"> </p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-463477" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.problogdesign.com/wordpress/will-the-gpl-kill-wordpress-development/" rel="external nofollow" class="url">Will the GPL Kill WordPress Development? | Pro Blog Design</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-474482" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.problogdesign.com/design/decade-in-web-design/" rel="external nofollow" class="url">Decade in Web Design | Pro Blog Design</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-475220" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-475220" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./BloggingSoftwareDilemma_files/b85bcfbe308f1907ba9c77e76b759df9" class="avatar avatar-60 photo grav-hashed grav-hijack" height="60" width="60" id="grav-b85bcfbe308f1907ba9c77e76b759df9-0">						<b class="fn"><a href="http://mnhart.com/" rel="external nofollow" class="url">mnhart</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://ma.tt/2003/01/the-blogging-software-dilemma/#comment-475220">
+							<time datetime="2010-01-24T01:34:49+00:00">
+								January 24, 2010 at 1:34 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Happy B-Day WordPress!</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-475248" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://alextabone.wordpress.com/2010/01/25/happy-birthday-wordpress/" rel="external nofollow" class="url">Happy birthday WordPress « Blog Alex</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-501503" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.site5.com/blog/scripts/wordpress/happy-anniversary-wordpress/20110124/" rel="external nofollow" class="url">Happy Anniversary WordPress! | Site5 Webmaster Blog – Learn about all those internet tube things!</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-501619" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://zed1.com/journalized/archives/2011/01/27/wordpress-8-years-in-the-making/" rel="external nofollow" class="url">WordPress – 8 Years in the making | Mike Little's Journalized</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-528475" class="comment odd alt thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-528475" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./BloggingSoftwareDilemma_files/13454c212d9e3b7967f1bd6a77ae3d6b" class="avatar avatar-60 photo grav-hashed grav-hijack" height="60" width="60" id="grav-13454c212d9e3b7967f1bd6a77ae3d6b-0">						<b class="fn"><a href="http://charleyramm.co.uk/" rel="external nofollow" class="url">Charley Ramm</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://ma.tt/2003/01/the-blogging-software-dilemma/#comment-528475">
+							<time datetime="2011-09-23T07:16:07+00:00">
+								September 23, 2011 at 7:16 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>“Well, it would be nice to have the flexibility of MovableType, the parsing of TextPattern, the hackability of b2, and the ease of setup of Blogger. Someday, right?”</p>
+<p>What happened to ‘the parsing of TextPattern’? I have been dreaming of using WordPress with Textile or some kind of wikitext.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-528806" class="comment byuser comment-author-saxmatt bypostauthor even depth-2">
+			<article id="div-comment-528806" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./BloggingSoftwareDilemma_files/767fc9c115a1b989744c755db47feb60" class="avatar avatar-60 photo grav-hashed grav-hijack" height="60" width="60" id="grav-767fc9c115a1b989744c755db47feb60-0">						<b class="fn"><a href="http://ma.tt/" rel="external nofollow" class="url">Matt</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://ma.tt/2003/01/the-blogging-software-dilemma/#comment-528806">
+							<time datetime="2011-09-27T22:51:25+00:00">
+								September 27, 2011 at 10:51 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>There are lots of plugins for it, here’s one: <a href="https://wordpress.org/extend/plugins/text-control-2/" rel="nofollow">https://wordpress.org/extend/plugins/text-control-2/</a></p>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+									</div><!-- .reply -->
+			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-545112" class="pingback odd alt thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://zed1.com/journalized/archives/2012/01/25/wordpress-9-years-since-its-conception/" rel="external nofollow" class="url">WordPress – 9 years since it’s conception | Mike Little's Journalized</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-561122" class="pingback even thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.smashingmagazine.com/2012/04/13/smashing-special-whats-going-on-in-the-wordpress-economy/" rel="external nofollow" class="url">What's Going On In The WordPress Economy? - Part 1 | Smashing WordPress</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-568005" class="pingback odd alt thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="https://www.passionpersonified.com/2011/01/905/happy-anniversary-wordpress" rel="external nofollow" class="url">Happy Anniversary WordPress! | Corey Edwards</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-568455" class="pingback even thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://lorelleteaches.wordpress.com/2012/10/14/the-history-of-wordpress/" rel="external nofollow" class="url">The History of WordPress | Learning from Lorelle</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-568925" class="pingback odd alt thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://lorelle.wordpress.com/2013/01/09/happy-birthday-and-anniversary-matt-mullenweg/" rel="external nofollow" class="url">Happy Birthday and Anniversary, Matt Mullenweg « Lorelle on WordPress</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-568945" class="pingback even thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://wpdaily.co/birthday-matt-2013/" rel="external nofollow" class="url">Happy Birthday Matt! - WP Daily</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-568950" class="pingback odd alt thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://wpengine.com/2013/01/happy-29th-birthday-matt/" rel="external nofollow" class="url">Happy 29th Birthday, Matt! | WordPress Hosting by @WPEngine</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-569041" class="pingback even thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.problogdesign.com/other/right-or-wrong-open-source-needs-opinionated-leaders/" rel="external nofollow" class="url">Right or Wrong, Open Source Needs Opinionated Leaders | Pro Blog Design</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-569056" class="pingback odd alt thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://zed1.com/journalized/archives/2013/01/25/wordpress-a-10-year-journey/" rel="external nofollow" class="url">WordPress - A 10 year journey | Mike Little's JournalizedMike Little's Journalized</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-569742" class="pingback even thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://darylzreyes.wordpress.com/2013/04/03/king-of-all-blogs-a-wordpress-story/" rel="external nofollow" class="url">King of all Blogs: A WordPress Story | Daryl Z Reyes</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-569776" class="pingback odd alt thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://angulam.com/2013/01/27/ten-years-of-wordpress-and-interesting-trivia-from-blogging-history/" rel="external nofollow" class="url">Ten years of WordPress and interesting trivia from blogging history | Angulam's Blog</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-570596" class="pingback even thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://webmagazin.co/web-dunyasinda-neler-oluyor-5/" rel="external nofollow" class="url">Web Dünyasında Neler Oluyor #5</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-570731" class="pingback odd alt thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://wpmu.org/wordpress-10-years-old-visual-history/" rel="external nofollow" class="url">A 10 Year Visual History of WordPress.org - WPMU.org</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-570749" class="pingback even thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://avopilvi.fi/blog/2013/05/16/a-10-year-visual-history-of-wordpress-org/" rel="external nofollow" class="url">Pilvitekoulutus 2013 - A 10 Year Visual History of WordPress.org</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-570759" class="pingback odd alt thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://causeblogs.org/2013/05/16/a-10-year-visual-history-of-wordpress-org/" rel="external nofollow" class="url">A 10 Year Visual History of WordPress.org | Causeblogs</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-570761" class="pingback even thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://community.mpressstudios.com/2013/05/15/a-10-year-visual-history-of-wordpress-org/" rel="external nofollow" class="url">A 10 Year Visual History of WordPress.org - WordPress Community | powered by Mpress Studios</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-571097" class="pingback odd alt thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://reinspirit.com/la-histora-visual-de-wordpress-en-diez-anos/" rel="external nofollow" class="url">La histora visual de Wordpress en diez años</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-571568" class="pingback even thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://wpbuzzerblog.wordpress.com/2013/05/24/wordpress-time-machine/" rel="external nofollow" class="url">WordPress Time Machine | WPBuzzer</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-571661" class="pingback odd alt thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.wptavern.com/co-founder-of-wordpress-to-receive-award" rel="external nofollow" class="url">Co-Founder Of WordPress To Receive Award</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-571679" class="pingback even thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.wpmania.gr/wordpress/%ce%b2%cf%81%ce%b1%ce%b2%ce%b5%cf%8d%ce%b5%cf%84%ce%b1%ce%b9-%ce%bf-%cf%83%cf%85%ce%bd%ce%b9%ce%b4%cf%81%cf%85%cf%84%ce%ae%cf%82-%cf%84%ce%bf%cf%85-wordpress/" rel="external nofollow" class="url">Βραβεύεται ο συνιδρυτής του WordPress</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-571766" class="pingback odd alt thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://wprealm.com/blog/wordpress-turns-10-thanks-mike-matt/" rel="external nofollow" class="url">WordPress Turns 10! Thanks Mike &amp; Matt! - WP Realm</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-571785" class="pingback even thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://ifamily.co.uk/wordpress-10-years-of-free-pres" rel="external nofollow" class="url">WordPress: Ten years of a free press</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-571789" class="pingback odd alt thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://fmbalvarez.com.ar/10-anos-wordpress/" rel="external nofollow" class="url">10 años de Wordpress</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-571790" class="pingback even thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.basicthinking.de/blog/2013/05/27/herzlichen-gluckwunsch-zum-10-geburtstag-wordpress/" rel="external nofollow" class="url">Herzlichen Glückwunsch zum 10. Geburtstag, WordPress! | BASIC thinking</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-571808" class="pingback odd alt thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://cowbellnation.wordpress.com/2013/05/27/10th-anniversary-wordpress-infographic/" rel="external nofollow" class="url">Happy 10th Anniversary WordPress: An Infographic | WordPress 101</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-571812" class="pingback even thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://wp-mexico.com/2013/05/10-anos-de-wordpress/" rel="external nofollow" class="url">10 años de WordPress | WP México</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-571821" class="pingback odd alt thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://hakanertr.wordpress.com/2013/05/27/wordpress-10uncu-yil-donumu/" rel="external nofollow" class="url">WordPress 10′uncu Yıl dönümü | HakanEr</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-571872" class="pingback even thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://tech-lounge.de/wordpress-feiert-10-jaehriges-jubilaeum/" rel="external nofollow" class="url">Wordpress feiert 10. jähriges Jubiläum › Tech-Lounge</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-572070" class="pingback odd alt thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.frisch-gebloggt.de/blogging/zehn-jahre-wordpress/" rel="external nofollow" class="url">Zehn Jahre WordPress | Frisch gebloggt</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-572154" class="pingback even thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://lorelle.wordpress.com/2013/05/27/happy-birthday-wordpress/" rel="external nofollow" class="url">Happy Birthday, WordPress! « Lorelle on WordPress</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-572502" class="pingback odd alt thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://www.wptavern.com/10th-anniversary-interview-with-wordpress-co-founder" rel="external nofollow" class="url">10th Anniversary Interview With WordPress Co-Founder</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-572506" class="pingback even thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="https://wordpress.org/news/2013/05/ten-good-years/" rel="external nofollow" class="url">WordPress › Ten Good Years</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-572649" class="pingback odd alt thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="http://ja.wordpress.org/2013/06/05/ten-good-years/" rel="external nofollow" class="url">WordPress › 日本語 « すばらしき10年間</a> 			</div>
+</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+		
+				<p class="no-comments">Comments are closed.</p>
+		
+	
+									
+</div><!-- #comments -->
+			
+		</div><!-- #content -->
+	</div><!-- #primary -->
+
+
+		</div><!-- #main -->
+		<footer id="colophon" class="site-footer" role="contentinfo">
+			
+			<div class="site-info">
+								<a href="http://wordpress.org/" title="Semantic Personal Publishing Platform">Proudly powered by WordPress</a>
+			</div><!-- .site-info -->
+		</footer><!-- #colophon -->
+	</div><!-- #page -->
+
+	<script type="text/javascript">
+	jQuery(function() {
+		jQuery('#comment').addProofreader();
+		jQuery('#AtD_0').insertAfter('#comment');
+	});
+</script>
+	<div style="display:none">
+	<div class="grofile-hash-map-b250c1bc873a55a891a5ea553fbdee74">
+	</div>
+	<div class="grofile-hash-map-a3a949142350504847bcd085bce4eb0d">
+	</div>
+	<div class="grofile-hash-map-f9b5840d0e169aa37499fd049ebf0b2d">
+	</div>
+	<div class="grofile-hash-map-7667dd8865dbaadcff2faa9500f3f3f5">
+	</div>
+	<div class="grofile-hash-map-e71486d6f8fe2954b12a9a26eaffad45">
+	</div>
+	<div class="grofile-hash-map-725a65c47ec4839e3b8c071e7d056b05">
+	</div>
+	<div class="grofile-hash-map-75dfbc85d9af3dd5816bc86ff276279a">
+	</div>
+	<div class="grofile-hash-map-f8589344783d1a93a51e1d707ad921af">
+	</div>
+	<div class="grofile-hash-map-aac73afbedf920e220e552d488eebe3d">
+	</div>
+	<div class="grofile-hash-map-7645e98dc1bcd307a92d365d23de6315">
+	</div>
+	<div class="grofile-hash-map-e72bb7076fa751a7b4ddf5c1702e5ab6">
+	</div>
+	<div class="grofile-hash-map-3abfb0e39a7adbf41c3036c467a161f5">
+	</div>
+	<div class="grofile-hash-map-0c7de27d12098a36df8d5b6c0f86d094">
+	</div>
+	<div class="grofile-hash-map-c2b353923d22e8291d5929ff7188b2b9">
+	</div>
+	<div class="grofile-hash-map-0f6545c374b3370fb1c45a8fb91e64db">
+	</div>
+	<div class="grofile-hash-map-b85bcfbe308f1907ba9c77e76b759df9">
+	</div>
+	<div class="grofile-hash-map-13454c212d9e3b7967f1bd6a77ae3d6b">
+	</div>
+	<div class="grofile-hash-map-767fc9c115a1b989744c755db47feb60">
+	</div>
+	</div>
+
+	<script type="text/javascript">
+		WPCOM_sharing_counts = {"http:\/\/ma.tt\/2003\/01\/the-blogging-software-dilemma\/":405}	</script>
+	<div id="sharing_email" style="display: none;">
+		<form action="./BloggingSoftwareDilemma_files/BloggingSoftwareDilemma.htm" method="post">
+			<label for="target_email">Send to Email Address</label>
+			<input type="text" name="target_email" id="target_email" value="">
+
+			
+				<label for="source_name">Your Name</label>
+				<input type="text" name="source_name" id="source_name" value="">
+
+				<label for="source_email">Your Email Address</label>
+				<input type="text" name="source_email" id="source_email" value="">
+
+			
+			
+			<img style="float: right; display: none" class="loading" src="./BloggingSoftwareDilemma_files/loading.gif" alt="loading" width="16" height="16">
+			<input type="submit" value="Send Email" class="sharing_send">
+			<a href="http://ma.tt/2003/01/the-blogging-software-dilemma/#cancel" class="sharing_cancel">Cancel</a>
+
+			<div class="errors errors-1" style="display: none;">
+				Post was not sent - check your email addresses!			</div>
+
+			<div class="errors errors-2" style="display: none;">
+				Email check failed, please try again			</div>
+
+			<div class="errors errors-3" style="display: none;">
+				Sorry, your blog cannot share posts by email.			</div>
+		</form>
+	</div>
+		<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-facebook' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-twitter' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-google-plus-1' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomgoogle-plus-1', 'menubar=1,resizable=1,width=600,height=600' );
+				return false;
+			});
+		});
+		</script>
+				<iframe src="./BloggingSoftwareDilemma_files/master.htm" scrolling="no" id="likes-master" name="likes-master" style="display:none;"></iframe>
+		<div id="likes-other-gravatars"><div class="likes-text"><span>%d</span> bloggers like this:</div><ul class="wpl-avatars sd-like-gravatars"></ul></div>
+		<script type="text/javascript">
+		//<![CDATA[
+			var jetpackLikesWidgetQueue = [];
+			var jetpackLikesMasterReady = false;
+
+			function JetpackLikespostMessage( message, target ) {
+				if ( "string" === typeof message ){
+					try{
+						message = JSON.parse( message );
+					}
+					catch(e) {
+						return;
+					}
+				}
+
+				pm( {
+					target: target,
+					type: 'likesMessage',
+					data: message,
+					origin: '*'
+				} );
+			}
+
+			function JetpackLikesMessageListener( event ) {
+				if ( "undefined" == typeof event.event )
+					return;
+
+				if ( 'masterReady' == event.event ) {
+					jQuery( document ).ready( function() {
+						jetpackLikesMasterReady = true;
+
+						var stylesData = {
+								event: 'injectStyles'
+						};
+
+						if ( jQuery( 'iframe.admin-bar-likes-widget' ).length > 0 ) {
+							JetpackLikespostMessage( { event: 'adminBarEnabled' }, window.frames[ 'likes-master' ] );
+
+							stylesData.adminBarStyles = {
+								background: jQuery( '#wpadminbar .quicklinks li#wp-admin-bar-wpl-like > a' ).css( 'background' )
+							};
+						}
+
+						if ( !window.addEventListener )
+							jQuery( '#wp-admin-bar-admin-bar-likes-widget' ).hide();
+
+						stylesData.textStyles = {
+							color: jQuery( '.sd-text-color').css( 'color' ),
+							fontFamily: jQuery( '.sd-text-color' ).css( 'font-family' ),
+							fontSize: jQuery( '.sd-text-color' ).css( 'font-size' ),
+							direction: jQuery( '.sd-text-color' ).css( 'direction' ),
+							fontWeight: jQuery( '.sd-text-color' ).css( 'font-weight' ),
+							fontStyle: jQuery( '.sd-text-color' ).css( 'font-style' ),
+							textDecoration: jQuery( '.sd-text-color' ).css('text-decoration')
+						};
+
+						stylesData.linkStyles = {
+							color: jQuery( '.sd-link-color' ).css('color'),
+							fontFamily: jQuery( '.sd-link-color' ).css('font-family'),
+							fontSize: jQuery( '.sd-link-color' ).css('font-size'),
+							textDecoration: jQuery( '.sd-link-color' ).css('text-decoration'),
+							fontWeight: jQuery( '.sd-link-color' ).css( 'font-weight' ),
+							fontStyle: jQuery( '.sd-link-color' ).css( 'font-style' )
+						};
+
+						JetpackLikespostMessage( stylesData, window.frames[ 'likes-master' ] );
+
+						var requests = [];
+						jQuery( '.jetpack-likes-widget-wrapper' ).each( function( i ) {
+							var regex = /like-(post|comment)-wrapper-(\d+)-(\d+)-(\w+)/;
+							var match = regex.exec( this.id );
+							if ( ! match || match.length != 5 )
+								return;
+
+							var info = {
+								blog_id: match[2],
+								width:   this.width
+							};
+
+							if ( 'post' == match[1] ) {
+								info.post_id = match[3];
+							} else if ( 'comment' == match[1] ) {
+								info.comment_id = match[3];
+							}
+
+							info.obj_id = match[4];
+
+							requests.push( info );
+						});
+
+						JetpackLikespostMessage( { event: 'initialBatch', requests: requests }, window.frames['likes-master'] );
+
+						jQuery( document ).on( 'inview', 'div.jetpack-likes-widget-unloaded', function() {
+							jetpackLikesWidgetQueue.push( this.id );
+						});
+					});
+				}
+
+				if ( 'showLikeWidget' == event.event ) {
+					setTimeout( JetpackLikesWidgetQueueHandler, 10 );
+					jQuery( '#' + event.id + ' .post-likes-widget-placeholder'  ).fadeOut( 'fast', function() {
+						jQuery( '#' + event.id + ' .post-likes-widget' ).fadeIn( 'fast', function() {
+							JetpackLikespostMessage( { event: 'likeWidgetDisplayed', blog_id: event.blog_id, post_id: event.post_id, obj_id: event.obj_id }, window.frames['likes-master'] );
+						});
+					});
+				}
+
+				if ( 'showOtherGravatars' == event.event ) {
+					var $container = jQuery( '#likes-other-gravatars' );
+					var $list = $container.find( 'ul' );
+
+					$container.hide();
+					$list.html( '' );
+
+					$container.find( '.likes-text span' ).text( event.total );
+
+					jQuery.each( event.likers, function( i, liker ) {
+						$list.append( '<li class="' + liker.css_class + '"><a href="' + liker.profile_URL + '" class="wpl-liker" rel="nofollow" target="_parent"><img src="' + liker.avatar_URL + '" alt="' + liker.name + '" width="30" height="30" style="padding-right: 3px;" /></a></li>');
+					} );
+
+					var offset = jQuery( "[name='" + event.parent + "']" ).offset();
+
+					$container.css( 'left', offset.left + event.position.left - 10 + 'px' );
+					$container.css( 'top', offset.top + event.position.top - 33 + 'px' );
+
+					var rowLength = Math.floor( event.width / 37 );
+					var height = ( Math.ceil( event.likers.length / rowLength ) * 37 ) + 13;
+					if ( height > 204 ) {
+						height = 204;
+					}
+
+					$container.css( 'height', height + 'px' );
+					$container.css( 'width', rowLength * 37 - 7 + 'px' );
+
+					$list.css( 'width', rowLength * 37 + 'px' );
+
+					$container.fadeIn( 'slow' );
+
+					var scrollbarWidth = $list[0].offsetWidth - $list[0].clientWidth;
+					if ( scrollbarWidth > 0 ) {
+						$container.width( $container.width() + scrollbarWidth );
+						$list.width( $list.width() + scrollbarWidth );
+					}
+				}
+			}
+
+			pm.bind( 'likesMessage', function(e) { JetpackLikesMessageListener(e); } );
+
+			jQuery( document ).click( function( e ) {
+				var $container = jQuery( '#likes-other-gravatars' );
+
+				if ( $container.has( e.target ).length === 0 ) {
+					$container.fadeOut( 'slow' );
+				}
+			});
+
+			function JetpackLikesWidgetQueueHandler() {
+				var wrapperID;
+				if ( ! jetpackLikesMasterReady ) {
+					setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+					return;
+				}
+
+				if ( jetpackLikesWidgetQueue.length > 0 ) {
+					// We may have a widget that needs creating now
+					var found = false;
+					while( jetpackLikesWidgetQueue.length > 0 ) {
+						// Grab the first member of the queue that isn't already loading.
+						wrapperID = jetpackLikesWidgetQueue.splice( 0, 1 )[0];
+						if ( jQuery( '#' + wrapperID ).hasClass( 'jetpack-likes-widget-unloaded' ) ) {
+							found = true;
+							break;
+						}
+					}
+					if ( ! found ) {
+						setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+						return;
+					}
+				} else if ( jQuery( 'div.jetpack-likes-widget-unloaded' ).length > 0 ) {
+					// Get the next unloaded widget
+					wrapperID = jQuery( 'div.jetpack-likes-widget-unloaded' ).first()[0].id;
+					if ( ! wrapperID ) {
+						// Everything is currently loaded
+						setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+						return;
+					}
+				}
+
+				var $wrapper = jQuery( '#' + wrapperID );
+				$wrapper.find( 'iframe' ).remove();
+
+				if ( $wrapper.hasClass( 'slim-likes-widget' ) ) {
+					$wrapper.find( '.post-likes-widget-placeholder' ).after( "<iframe class='post-likes-widget jetpack-likes-widget' name='" + $wrapper.data( 'name' ) + "' height='22px' width='68px' frameBorder='0' scrolling='no' src='" + $wrapper.data( 'src' ) + "'></iframe>" );
+				} else {
+					$wrapper.find( '.post-likes-widget-placeholder' ).after( "<iframe class='post-likes-widget jetpack-likes-widget' name='" + $wrapper.data( 'name' ) + "' height='55px' width='100%' frameBorder='0' src='" + $wrapper.data( 'src' ) + "'></iframe>" );
+				}
+
+				$wrapper.removeClass( 'jetpack-likes-widget-unloaded' ).addClass( 'jetpack-likes-widget-loading' );
+
+				$wrapper.find( 'iframe' ).load( function( e ) {
+					var $iframe = jQuery( e.target );
+					$wrapper.removeClass( 'jetpack-likes-widget-loading' ).addClass( 'jetpack-likes-widget-loaded' );
+
+					JetpackLikespostMessage( { event: 'loadLikeWidget', name: $iframe.attr( 'name' ), width: $iframe.width() }, window.frames[ 'likes-master' ] );
+
+					if ( $wrapper.hasClass( 'slim-likes-widget' ) ) {
+						$wrapper.find( 'iframe' ).Jetpack( 'resizeable' );
+					}
+				});
+				setTimeout( JetpackLikesWidgetQueueHandler, 250 );
+			}
+			JetpackLikesWidgetQueueHandler();
+		//]]>
+		</script>
+<script type="text/javascript" src="./BloggingSoftwareDilemma_files/photon.js"></script>
+<script type="text/javascript" src="./BloggingSoftwareDilemma_files/gprofiles.js"></script>
+<script type="text/javascript" src="./BloggingSoftwareDilemma_files/devicepx-jetpack.js"></script>
+<script type="text/javascript" src="./BloggingSoftwareDilemma_files/gprofiles(1).js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./BloggingSoftwareDilemma_files/wpgroho.js"></script>
+<script type="text/javascript" src="./BloggingSoftwareDilemma_files/functions.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var recaptcha_options = {"lang":"en"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./BloggingSoftwareDilemma_files/sharing.js"></script>
+
+	<script src="./BloggingSoftwareDilemma_files/e-201336.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	st_go({v:'ext',j:'1:2.4',blog:'1047865',post:'405',tz:'-7'});
+	var load_cmc = function(){linktracker_init(1047865,405,2);};
+	if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+	else load_cmc();
+	</script><img id="wpstats" src="./BloggingSoftwareDilemma_files/g.gif" alt="">
+<iframe width="0" height="0" frameborder="0" src="about:blank" id="GINGER_SOFATWARE_contextMenuIFrame" scrolling="no" style="border: 0px solid; z-index: 2147483647; height: 0px; width: 0px; background-color: transparent;"></iframe><iframe width="0" height="0" frameborder="0" src="about:blank" id="GINGER_SOFATWARE_bubblesIFrame" scrolling="no" style="border: 0px solid; position: absolute; z-index: 2147483647; height: 0px; width: 0px; background-color: transparent;"></iframe><div id="GingerWidgetInfo" style="display:none;">{"version":"0.1.0.301","isExtension":true,"extensionName":"Chrome"}</div></body></html>
