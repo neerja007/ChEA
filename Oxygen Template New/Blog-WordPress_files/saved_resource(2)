@@ -1,0 +1,941 @@
+/*
+ *	TypeWatch 2.0 - Original by Denny Ferrassoli / Refactored by Charles Christolini
+ *
+ *	Examples/Docs: www.dennydotnet.com
+ *	
+ *  Copyright(c) 2007 Denny Ferrassoli - DennyDotNet.com
+ *  Coprright(c) 2008 Charles Christolini - BinaryPie.com
+ *  
+ *  Dual licensed under the MIT and GPL licenses:
+ *  http://www.opensource.org/licenses/mit-license.php
+ *  http://www.gnu.org/licenses/gpl.html
+*/
+
+(function(jQuery) {
+	jQuery.fn.typeWatch = function(o){
+		// Options
+		var options = jQuery.extend({
+			wait : 750,
+			callback : function() { },
+			highlight : true,
+			captureLength : 2
+		}, o);
+			
+		function checkElement(timer, override) {
+			var elTxt = jQuery(timer.el).val();
+		
+			// Fire if text > options.captureLength AND text != saved txt OR if override AND text > options.captureLength
+			if ((elTxt.length > options.captureLength && elTxt.toUpperCase() != timer.text) 
+			|| (override && elTxt.length > options.captureLength)) {
+				timer.text = elTxt.toUpperCase();
+				timer.cb(elTxt);
+			}
+		};
+		
+		function watchElement(elem) {			
+			// Must be text or textarea
+			if (jQuery.inArray(elem.type.toUpperCase(), ["TEXT","EMAIL"]) || elem.nodeName.toUpperCase() == "TEXTAREA") {
+
+				// Allocate timer element
+				var timer = {
+					timer : null, 
+					text : jQuery(elem).val().toUpperCase(),
+					cb : options.callback, 
+					el : elem, 
+					wait : options.wait
+				};
+
+				// Set focus action (highlight)
+				if (options.highlight) {
+					jQuery(elem).focus(
+						function() {
+							this.select();
+						});
+				}
+
+				// Key watcher / clear and reset the timer
+				var startWatch = function(evt) {
+					var timerWait = timer.wait;
+					var overrideBool = false;
+					
+					if (evt.keyCode == 13 && this.type.toUpperCase() == "TEXT") {
+						timerWait = 1;
+						overrideBool = true;
+					}
+					
+					var timerCallbackFx = function()
+					{
+						checkElement(timer, overrideBool)
+					}
+					
+					// Clear timer					
+					clearTimeout(timer.timer);
+					timer.timer = setTimeout(timerCallbackFx, timerWait);				
+										
+				};
+				
+				jQuery(elem).keydown(startWatch);
+			}
+		};
+		
+		// Watch Each Element
+		return this.each(function(index){
+			watchElement(this);
+		});
+		
+	};
+
+})(jQuery);
+;
+/*
+  jQuery-SelectBox
+  
+  Traditional select elements are very difficult to style by themselves, 
+  but they are also very usable and feature rich. This plugin attempts to 
+  recreate all selectbox functionality and appearance while adding 
+  animation and stylability.
+  
+  This product includes software developed 
+  by RevSystems, Inc (http://www.revsystems.com/) and its contributors
+  
+  Please see the accompanying LICENSE.txt for licensing information.
+*/
+(function(a){jQuery.fn.borderWidth=function(){return a(this).outerWidth()-a(this).innerWidth()};jQuery.fn.marginWidth=function(){return a(this).outerWidth(true)-a(this).outerWidth()};jQuery.fn.paddingWidth=function(){return a(this).innerWidth()-a(this).width()};jQuery.fn.extraWidth=function(){return a(this).outerWidth(true)-a(this).width()};jQuery.fn.offsetFrom=function(b){return{left:a(this).offset().left-b.offset().left,top:a(this).offset().top-b.offset().top}};jQuery.fn.maxWidth=function(){var b=0;a(this).each(function(){if(a(this).width()>b){b=a(this).width()}});return b};jQuery.fn.sb=function(b){if(a.browser.msie&&a.browser.version<7){return a(this)}b=a.extend({acTimeout:800,animDuration:300,ddCtx:"body",fixedWidth:true,maxHeight:false,maxWidth:false,noScrollThreshold:100,placement:"before",selectboxClass:"selectbox",arrowMarkup:"<span class='arrow_btn'><span class='interior'><span class='arrow'></span></span></span>",optionFormat:function(c,d){return a(this).text()},optgroupFormat:function(c){return"<span class='label'>"+a(this).attr("label")+"</span>"}},b);a(this).each(function(){var q=a(this);var F=null;var k=null;var A=null;var g=null;function p(){F=a("<div class='"+b.selectboxClass+" "+q.attr("class")+"'></div>");a("body").append(F);k=a("<a href='#' class='display "+q.attr("class")+"'"+" "+((q[0].tabIndex) ? "tabindex='"+(q[0].tabIndex)+"'" : "")+"><span class='value'>"+q.val()+"</span> <span class='text'>"+b.optionFormat.call(q.find("option:selected")[0],0,0)+"</span>"+b.arrowMarkup+"</a>");F.append(k);A=a("<ul class='items "+q.attr("class")+"'></ul>");F.append(A);q.children().each(function(H){if(a(this).is("optgroup")){var I=a(this);var J=a("<li class='optgroup'>"+b.optgroupFormat.call(I[0],H+1)+"</li>");var K=a("<ul class='items'></ul>");J.append(K);A.append(J);I.children("option").each(function(L){K.append("<li class='"+(a(this).attr("selected")?"selected":"")+" "+(a(this).attr("disabled")?"disabled":"")+"'><a href='#'><span class='value'>"+a(this).attr("value")+"</span><span class='text'>"+b.optionFormat.call(this,H+1,L+1)+"</span></a></li>")})}else{A.append("<li class='"+(a(this).attr("selected")?"selected":"")+" "+(a(this).attr("disabled")?"disabled":"")+"'><a href='#'><span class='value'>"+a(this).attr("value")+"</span><span class='text'>"+b.optionFormat.call(this,0,H+1)+"</span></a></li>")}});g=A.find("li").not(".optgroup");A.children(":first").addClass("first");A.children(":last").addClass("last");q.hide();if(b.fixedWidth){var G=F.find(".text, .optgroup").maxWidth()+k.extraWidth()+1;F.width(b.maxWidth?Math.min(b.maxWidth,G):G);if(a.browser.msie&&a.browser.version<=7){g.find("a").each(function(){a(this).css("width","100%").width(a(this).width()-a(this).paddingWidth()-a(this).borderWidth())})}}else{if(b.maxWidth&&F.width()>b.maxWidth){F.width(b.maxWidth)}}if(b.placement=="before"){q.before(F)}else{if(b.placement=="after"){q.after(F)}}A.hide();if(!q.is(":disabled")){k.click(D).focus(c).blur(E).hover(C,t);g.not(".disabled").find("a").click(h);g.filter(".disabled").find("a").click(function(){return false});g.not(".disabled").hover(C,t);A.find(".optgroup").hover(C,t)}else{F.addClass("disabled");k.click(function(H){H.preventDefault()})}F.bind("close",v);F.bind("destroy",d);q.bind("reload",function(){d();p()});q.focus(z)}function z(){k.focus();return false}function x(){d();p()}function d(){F.unbind().find("*").unbind();F.remove();q.unbind("reload",x).unbind("focus",z).show()}function r(){e();a(document).unbind("click",r)}function e(){a("."+b.selectboxClass).trigger("close")}function y(){a("."+b.selectboxClass).not(F[0]).trigger("close")}function v(){g.removeClass("hover");a(document).unbind("keyup",o);a(document).unbind("keydown",i);A.fadeOut(b.animDuration,function(){F.removeClass("open");F.append(A)})}function m(){var G=null;if(b.ddCtx=="self"){G=F}else{if(a.isFunction(b.ddCtx)){G=a(b.ddCtx.call(q[0]))}else{G=a(b.ddCtx)}}return G}function s(){var I=m();e();F.addClass("open");var G=u();I.append(A);function H(){A.scrollTop(g.filter(".selected").offsetFrom(A).top-A.height()/2+g.filter(".selected").outerHeight(true)/2)}if(a.browser.msie&&a.browser.version<8){a("."+b.selectboxClass+" .display").hide().show()}if(G=="up"){A.fadeIn(b.animDuration,H)}else{if(G=="down"){A.slideDown(b.animDuration,H)}else{A.fadeIn(b.animDuration,H)}}a(document).unbind("keyup",o).keyup(o);a(document).unbind("keydown",i).keydown(i);a(document).click(r)}function u(){var M=m();var G=0;var K=0;var H="";A.removeClass("above");A.css({display:"block",maxHeight:"none",position:"relative",visibility:"hidden"});if(b.fixedWidth){A.width(k.outerWidth()-A.extraWidth()+1)}var J=a(window).scrollTop()+a(window).height()-k.offset().top-k.outerHeight();var L=k.offset().top-a(window).scrollTop();var I=k.offsetFrom(M).top+k.outerHeight();if(A.outerHeight()<=J){G=b.maxHeight?b.maxHeight:J;K=I;H="down"}else{if(A.outerHeight()<=L){G=b.maxHeight?b.maxHeight:L;K=k.offsetFrom(M).top-Math.min(G,A.outerHeight());H="up"}else{if(J>b.noScrollThreshold&&J>L){G=b.maxHeight?b.maxHeight:J;K=I;H="down"}else{if(L>b.noScrollThreshold){G=b.maxHeight?b.maxHeight:L;K=k.offsetFrom(M).top-Math.min(G,A.outerHeight());H="up"}else{G=b.maxHeight?b.maxHeight:"none";K=I;H="down"}}}}A.css({display:"none",left:k.offsetFrom(M).left+(M[0].tagName.toLowerCase()=="body"?parseInt(a("body").css("margin-left")):0),maxHeight:G,position:"absolute",top:K+(M[0].tagName.toLowerCase()=="body"?parseInt(a("body").css("margin-top")):0),visibility:"visible"});if(H=="up"){A.addClass("above")}return H}function D(G){var H=a(this).closest("."+b.selectboxClass);if(H.is(".open")){v();k.focus()}else{k.focus();s()}return false}function n(){var G=a(this);k.find(".value").html(G.find(".value").html());k.find(".text").html(G.find(".text").html());k.find(".text").attr("title",G.find(".text").html());A.find("li").removeClass("selected");G.closest("li").addClass("selected");q.val(k.find(".value").html()).change()}function h(G){n.call(this);r();k.focus();return false}var B="";var j=null;function f(){B=""}function w(J){var K="";var I=g.not(".disabled");for(var H=0;H<I.size();H++){var G=I.eq(H).find(".text").text();K+=G+" ";if(G.toLowerCase().match("^"+J.toLowerCase())==J.toLowerCase()){return I.eq(H)}}return null}function l(H){var G=w(H);if(G!=null){n.call(G[0]);return true}return false}function i(G){if(G.which==38||G.which==40||G.which==8||G.which==32){G.preventDefault()}}function o(H){if(H.altKey||H.ctrlKey){return false}var G=g.filter(".selected");switch(H.which){case 38:if(G.size()>0){if(g.not(".disabled").filter(":first")[0]!=G[0]){n.call(g.not(".disabled").eq(g.not(".disabled").index(G)-1)[0])}}break;case 40:if(G.size()>0){if(g.not(".disabled").filter(":last")[0]!=G[0]){n.call(g.not(".disabled").eq(g.not(".disabled").index(G)+1)[0])}}else{if(g.size()>1){n.call(g.eq(0)[0])}}break;default:B+=String.fromCharCode(H.keyCode);if(!l(B)){clearTimeout(j);f()}else{clearTimeout(j);j=setTimeout(f,b.acTimeout)}break}return false}function c(){y();F.addClass("focused");if(!F.is(".open")){a(document).unbind("keyup",o).keyup(o);a(document).unbind("keydown",i).keydown(i)}}function E(){F.removeClass("focused");a(document).unbind("keyup",o);a(document).unbind("keydown",i)}function C(){a(this).addClass("hover")}function t(){a(this).removeClass("hover")}p()})}})(jQuery);
+;
+/*!
+ * selectivizr v1.0.1 - (c) Keith Clark, freely distributable under the terms of the MIT license.
+ * selectivizr.com
+ */
+var k=true,p=false;(function(A){function N(a){return a.replace(O,q).replace(P,function(b,e,c){b=c.split(",");c=0;for(var g=b.length;c<g;c++){var h=Q(b[c].replace(R,q).replace(S,q))+w,f=[];b[c]=h.replace(T,function(d,l,m,j,i){if(l){if(f.length>0){d=f;var x;i=h.substring(0,i).replace(U,o);if(i==o||i.charAt(i.length-1)==w)i+="*";try{x=y(i)}catch(ha){}if(x){i=0;for(m=x.length;i<m;i++){j=x[i];for(var B=j.className,C=0,V=d.length;C<V;C++){var r=d[C];if(!RegExp("(^|\\s)"+r.className+"(\\s|$)").test(j.className))if(r.b&&(r.b===k||r.b(j)===k))B=E(B,r.className,k)}j.className=B}}f=[]}return l}else{if(l=m?W(m):!F||F.test(j)?{className:G(j),b:k}:null){f.push(l);return"."+l.className}return d}})}return e+b.join(",")})}function W(a){var b=k,e=G(a.slice(1)),c=a.substring(0,5)==":not(",g,h;if(c)a=a.slice(5,-1);var f=a.indexOf("(");if(f>-1)a=a.substring(0,f);if(a.charAt(0)==":")switch(a.slice(1)){case "root":b=function(d){return c?d!=H:d==H};break;case "target":if(s==8){b=function(d){function l(){var m=location.hash,j=m.slice(1);return c?m==""||d.id!=j:m!=""&&d.id==j}t(A,"hashchange",function(){u(d,e,l())});return l()};break}return p;case "checked":b=function(d){X.test(d.type)&&t(d,"propertychange",function(){event.propertyName=="checked"&&u(d,e,d.checked!==c)});return d.checked!==c};break;case "disabled":c=!c;case "enabled":b=function(d){if(Y.test(d.tagName)){t(d,"propertychange",function(){event.propertyName=="$disabled"&&u(d,e,d.a===c)});z.push(d);d.a=d.disabled;return d.disabled===c}return a==":enabled"?c:!c};break;case "focus":g="focus";h="blur";case "hover":if(!g){g="mouseenter";h="mouseleave"}b=function(d){t(d,c?h:g,function(){u(d,e,k)});t(d,c?g:h,function(){u(d,e,p)});return c};break;default:if(!Z.test(a))return p}return{className:e,b:b}}function G(a){return I+"-"+(s==6&&$?aa++:a.replace(ba,function(b){return b.charCodeAt(0)}))}function Q(a){return a.replace(J,q).replace(ca,w)}function u(a,b,e){var c=a.className;b=E(c,b,e);if(b!=c){a.className=b;a.parentNode.className+=o}}function E(a,b,e){var c=RegExp("(^|\\s)"+b+"(\\s|$)"),g=c.test(a);return e?g?a:a+w+b:g?a.replace(c,q).replace(J,q):a}function t(a,b,e){a.attachEvent("on"+b,e)}function D(a,b){if(/^https?:\/\//i.test(a))return b.substring(0,b.indexOf("/",8))==a.substring(0,a.indexOf("/",8))?a:null;if(a.charAt(0)=="/")return b.substring(0,b.indexOf("/",8))+a;var e=b.split("?")[0];if(a.charAt(0)!="?"&&e.charAt(e.length-1)!="/")e=e.substring(0,e.lastIndexOf("/")+1);return e+a}function K(a){if(a){v.open("GET",a,p);v.send();return(v.status==200?v.responseText:o).replace(da,o).replace(ea,function(b,e,c,g,h){return K(D(c||h,a))}).replace(fa,function(b,e,c){e=e||"";return" url("+e+D(c,a)+e+") "})}return o}function ga(){var a,b;a=n.getElementsByTagName("BASE");for(var e=a.length>0?a[0].href:n.location.href,c=0;c<n.styleSheets.length;c++){b=n.styleSheets[c];if(b.href!=o)if(a=D(b.href,e))b.cssText=N(K(a))}z.length>0&&setInterval(function(){for(var g=0,h=z.length;g<h;g++){var f=z[g];if(f.disabled!==f.a)if(f.disabled){f.disabled=p;f.a=k;f.disabled=k}else f.a=f.disabled}},250)}if(!/*@cc_on!@*/true){var n=document,H=n.documentElement,v=function(){if(A.XMLHttpRequest)return new XMLHttpRequest;try{return new ActiveXObject("Microsoft.XMLHTTP")}catch(a){return null}}(),s=/MSIE ([\d])/.exec(navigator.userAgent)[1];if(!(n.compatMode!="CSS1Compat"||s<6||s>8||!v)){var L={NW:"*.Dom.select",DOMAssistant:"*.$",Prototype:"$$",YAHOO:"*.util.Selector.query",MooTools:"$$",Sizzle:"*",jQuery:"*",dojo:"*.query"},y,z=[],aa=0,$=k,I="slvzr",M=I+"DOMReady",da=/(\/\*[^*]*\*+([^\/][^*]*\*+)*\/)\s*/g,ea=/@import\s*(?:(?:(?:url\(\s*(['"]?)(.*)\1)\s*\))|(?:(['"])(.*)\3))[^;]*;/g,fa=/\burl\(\s*(["']?)([^"')]+)\1\s*\)/g,Z=/^:(empty|(first|last|only|nth(-last)?)-(child|of-type))$/,O=/:(:first-(?:line|letter))/g,P=/(^|})\s*([^\{]*?[\[:][^{]+)/g,T=/([ +~>])|(:[a-z-]+(?:\(.*?\)+)?)|(\[.*?\])/g,U=/(:not\()?:(hover|enabled|disabled|focus|checked|target|active|visited|first-line|first-letter)\)?/g,ba=/[^\w-]/g,Y=/^(INPUT|SELECT|TEXTAREA|BUTTON)$/,X=/^(checkbox|radio)$/,F=s>6?/[\$\^*]=(['"])\1/:null,R=/([(\[+~])\s+/g,S=/\s+([)\]+~])/g,ca=/\s+/g,J=/^\s*((?:[\S\s]*\S)?)\s*$/,o="",w=" ",q="$1";n.write("<script id="+M+" defer src='//:'><\/script>");n.getElementById(M).onreadystatechange=function(){if(this.readyState=="complete"){a:{var a,b;for(b in L)if(A[b]&&(a=eval(L[b].replace("*",b)))){y=a;break a}y=p}if(y){ga();this.parentNode.removeChild(this)}}}}}})(this);;
+/*
+ * jQuery Tools 1.2.5 - The missing UI library for the Web
+ * 
+ * [tooltip]
+ * 
+ * NO COPYRIGHTS OR LICENSES. DO WHAT YOU LIKE.
+ * 
+ * http://flowplayer.org/tools/
+ * 
+ * File generated: Mon Feb 07 12:16:12 GMT 2011
+ */
+(function(f){function p(a,b,c){var h=c.relative?a.position().top:a.offset().top,d=c.relative?a.position().left:a.offset().left,i=c.position[0];h-=b.outerHeight()-c.offset[0];d+=a.outerWidth()+c.offset[1];if(/iPad/i.test(navigator.userAgent))h-=f(window).scrollTop();var j=b.outerHeight()+a.outerHeight();if(i=="center")h+=j/2;if(i=="bottom")h+=j;i=c.position[1];a=b.outerWidth()+a.outerWidth();if(i=="center")d-=a/2;if(i=="left")d-=a;return{top:h,left:d}}function u(a,b){var c=this,h=a.add(c),d,i=0,j=
+0,m=a.attr("title"),q=a.attr("data-tooltip"),r=o[b.effect],l,s=a.is(":input"),v=s&&a.is(":checkbox, :radio, select, :button, :submit"),t=a.attr("type"),k=b.events[t]||b.events[s?v?"widget":"input":"def"];if(!r)throw'Nonexistent effect "'+b.effect+'"';k=k.split(/,\s*/);if(k.length!=2)throw"Tooltip: bad events configuration for "+t;a.bind(k[0],function(e){clearTimeout(i);if(b.predelay)j=setTimeout(function(){c.show(e)},b.predelay);else c.show(e)}).bind(k[1],function(e){clearTimeout(j);if(b.delay)i=
+setTimeout(function(){c.hide(e)},b.delay);else c.hide(e)});if(m&&b.cancelDefault){a.removeAttr("title");a.data("title",m)}f.extend(c,{show:function(e){if(!d){if(q)d=f(q);else if(b.tip)d=f(b.tip).eq(0);else if(m)d=f(b.layout).addClass(b.tipClass).appendTo(document.body).hide().append(m);else{d=a.next();d.length||(d=a.parent().next())}if(!d.length)throw"Cannot find tooltip for "+a;}if(c.isShown())return c;d.stop(true,true);var g=p(a,d,b);b.tip&&d.html(a.data("title"));e=e||f.Event();e.type="onBeforeShow";
+h.trigger(e,[g]);if(e.isDefaultPrevented())return c;g=p(a,d,b);d.css({position:"absolute",top:g.top,left:g.left});l=true;r[0].call(c,function(){e.type="onShow";l="full";h.trigger(e)});g=b.events.tooltip.split(/,\s*/);if(!d.data("__set")){d.bind(g[0],function(){clearTimeout(i);clearTimeout(j)});g[1]&&!a.is("input:not(:checkbox, :radio), textarea")&&d.bind(g[1],function(n){n.relatedTarget!=a[0]&&a.trigger(k[1].split(" ")[0])});d.data("__set",true)}return c},hide:function(e){if(!d||!c.isShown())return c;
+e=e||f.Event();e.type="onBeforeHide";h.trigger(e);if(!e.isDefaultPrevented()){l=false;o[b.effect][1].call(c,function(){e.type="onHide";h.trigger(e)});return c}},isShown:function(e){return e?l=="full":l},getConf:function(){return b},getTip:function(){return d},getTrigger:function(){return a}});f.each("onHide,onBeforeShow,onShow,onBeforeHide".split(","),function(e,g){f.isFunction(b[g])&&f(c).bind(g,b[g]);c[g]=function(n){n&&f(c).bind(g,n);return c}})}f.tools=f.tools||{version:"1.2.5"};f.tools.tooltip=
+{conf:{effect:"toggle",fadeOutSpeed:"fast",predelay:0,delay:30,opacity:1,tip:0,position:["top","center"],offset:[0,0],relative:false,cancelDefault:true,events:{def:"mouseenter,mouseleave",input:"focus,blur",widget:"focus mouseenter,blur mouseleave",tooltip:"mouseenter,mouseleave"},layout:"<div/>",tipClass:"tooltip"},addEffect:function(a,b,c){o[a]=[b,c]}};var o={toggle:[function(a){var b=this.getConf(),c=this.getTip();b=b.opacity;b<1&&c.css({opacity:b});c.show();a.call()},function(a){this.getTip().hide();
+a.call()}],fade:[function(a){var b=this.getConf();this.getTip().fadeTo(b.fadeInSpeed,b.opacity,a)},function(a){this.getTip().fadeOut(this.getConf().fadeOutSpeed,a)}]};f.fn.tooltip=function(a){var b=this.data("tooltip");if(b)return b;a=f.extend(true,{},f.tools.tooltip.conf,a);if(typeof a.position=="string")a.position=a.position.split(/,?\s/);this.each(function(){b=new u(f(this),a);f(this).data("tooltip",b)});return a.api?b:this}})(jQuery);
+;
+/**
+ * Bind all behaviors for "hot-templates" signup form
+ *
+ * @todo handle subdomains in blog address
+ * @todo support blogname suggestions
+ */
+;( function ( $ ) {
+	$.fn.errorState = function ( validationObject ) {
+		this.closest( 'tr' ).addClass( 'error' );
+		if ( undefined === validationObject || validationObject.error ) {
+			var id = this.attr( 'id' );
+			$( '#' + id + '-taken' ).show();			
+		}
+	};
+	
+	$.fn.validState = function () {
+		var id = this.attr( 'id' );
+		$('#' + id + '-free').show();
+
+		//not all fields have a message box, but if they do we should hide it
+		$('#' + id + '-messagebox').hide();
+	};
+	
+	//used to bind to keyup, typeWatch, blur and focus events
+	//takes an object with 3 properites - timeout, callback and captureLength
+	$.fn.bindTypingEvents = function ( options ) {
+		var timeoutFlag = false;
+
+		this.bind( 'keyup', function() {
+			clearTimeout( timeoutFlag );
+
+			// After 'timeout' seconds of no typing run the validation check
+			timeoutFlag = setTimeout( function() {
+				options.callback();
+			}, options.timeout );
+		} ).typeWatch( options ).blur( options.callback ).mouseout( options.callback );
+	};
+
+} )( jQuery );
+jQuery(document).ready(function($) {
+	var value_monitoring = {'full_address':'', 'user_name':'', 'user_email':''};
+	var last_request;
+
+	var endswith = function(s, e) {
+		return (s.substr(-e.length) == e);
+	};
+	var $submitContainer = $( '.create-account' ),
+		hasTooltipster = 'undefined' != typeof( $( '.tooltip' ).tooltipster ),
+		toggleSubmitTooltip = function( enableTooltip ) {
+			if ( !hasTooltipster )
+				return;
+
+			if ( enableTooltip ) {
+				$submitContainer.tooltipster( {
+					position: 'top',
+					content: SignupL10n.tooltipText,
+					offsetY: -20,
+				} ).tooltipster( 'enable' );
+			} else {
+				$submitContainer.tooltipster( 'disable' );
+			}
+		}
+
+	var set_submit_button_state = function() {
+		var can_submit_form = true
+
+		$.each(['#blogname', '#user_name', '#user_email', '#pass1'], function(_, field_id) {
+			if ($(field_id).length > 0 && '' == $(field_id).val()) 
+				can_submit_form = false;
+		});
+
+		$('table.form-table tr').each(function(e) {
+			if ($(this).hasClass('error')) {
+				can_submit_form = false;
+			}
+		});
+		
+		var $submit = $('#submit,.bundle-button,#upsell-button');
+
+		$submit.toggleClass('disabled', !can_submit_form);
+		$submit.prop( 'disabled', !can_submit_form );
+		toggleSubmitTooltip( !can_submit_form );
+	};
+
+	var has_placeholder_value = function( $field ) {
+		return $field.val() === $field.attr( 'placeholder' );
+	};
+	
+	// HIGHLIGHTING AND MESSAGING 
+	$('td input').on( 'focusin focusout', function( event ) {
+		$( this ).parents( 'tr' ).toggleClass( 'hilite', event.type === 'focusin' );
+	});
+	
+	$( 'input#blogname' ).keyup( function() {
+		$(this).parents( 'tr' ).removeClass( 'error' );
+		if ( $( '#blogname-messagebox' ).is( ':visible' ) ) 
+			$( '#blogname-messagebox' ).hide();
+	});
+
+	var hide_messages = function(context) {
+		$('#' + context + '-error').text('').hide();
+		$('#' + context + '-ok-message').html('&nbsp;');
+		$('#' + context + '-taken').hide(); //X
+		$('#' + context + '-free').hide(); //check
+		$('#' + context + '-messagebox').hide(); //floating div for confrontational messages like suggesting domains
+	}
+
+	// blogname has special behavior
+	var hide_messages_blogname = function() {
+		hide_messages('blogname');
+		$('div.did-you-know').hide();
+		$('#blogname-messagebox .choice-link').hide();
+		$('#blogname-purchase-no-thanks').hide();
+		$('#blogname-map-request').hide();
+		$('#blogname-messagebox .suggestions').hide();
+	}
+
+	// BLOGNAME (AND DOMAIN) 
+	var $blogname = $('#blogname'); //blogname (subdomain or domain name)
+	var $domain_name = $( '[name=tld]' );
+	var has_mlblogs = ( $( '[name=tld] :first-child' ).html() == '.mlblogs.com' );
+	var $user_pop = $('#blogname-domain-user');
+	var is_free_blog_domain = function(domain_name) {
+		if (domain_name == '.wordpress.com' || domain_name=='.mlblogs.com') {
+			return domain_name;
+		}
+		return false;
+	};
+	var default_free_blog_domain = (has_mlblogs) ? '.mlblogs.com' : '.wordpress.com';
+
+	// set_blogname_focus_text() needs to be here or crashes IE7 on submit
+	var set_blogname_focus_text = function() {
+		//if ( $domain_name.val() == '.wordpress.com' ) {
+		if ( is_free_blog_domain($domain_name.val()) ) {
+			$('#blogname-focus').hide();
+			$('#blogname-focus-free').show();
+		} else {
+			$('#blogname-focus-free').hide();
+			$('#blogname-focus').show();
+			if ($blogname.val().indexOf('.') == -1) {
+				$('#blogname-focus-tld').text($domain_name.val());
+				$('#blogname-focus-subdomain').show();
+			} else {
+				$('#blogname-focus-subdomain').hide();
+			}
+		}
+	}
+	// change the tld dropdown and refresh the jquery selectbox
+	var set_dropdown_value = function(value) {
+		$domain_name.val(value).triggerHandler('reload');		
+	}
+
+	var domains_checked = {};
+	var local_domain_name; //used to test for and store the name of a free blog signup
+	var blogname_changed = function() {		
+		if ( has_placeholder_value( $blogname ) )
+			return;
+
+		// Selectbox in IE7 is buggy, doesn't update value correctly, so manually add it
+		if ( $('#wpcom-address .selectbox .value').text() ) {
+			var real_tld = $('#wpcom-address .selectbox .text').text();
+			real_tld = real_tld.substr(0, real_tld.indexOf(' '));
+			$domain_name.val(real_tld);
+		}
+		set_blogname_focus_text();
+		if ( $blogname.val() + $domain_name.val() == value_monitoring.full_address ) {
+			
+			set_submit_button_state();
+			return false; // only proceed if different than current full address value monitoring key
+		}
+		$('#domain_row').removeClass('error');
+		$('#blogname-loading').show();
+		$( '#setupform #map-accepted' ).remove();
+		hide_messages_blogname();
+		// repair mistyped full path in blog fields
+		var blogname_lowercase = $blogname.val().toLowerCase();
+		var tlds = ['.wordpress.com'];
+		for (var tld in $.parseJSON(SignupL10n.domainPrices)) tlds.push('.'+tld);
+		if ( has_mlblogs )
+			tlds.unshift('.mlblogs.com');
+		/* 
+			If the user entered the whole domain, e.g. baba.com
+			remove the suffix (set blogname to baba) and set the
+			correct value of the dropdown (.com)
+
+			We need to sort the TLDs by length to make sure that if a TLD is a
+			suffix of another TLD, we will try to remove the longer one first.
+			Example: if I enter baba.mlblogs.com and .com is before .mlblogs.com
+			in the list, we will end up with baba.mlblogs / .com
+		*/
+
+		var tlds_longest_first = tlds.sort(function(x, y) { return y.length - x.length; });
+		var name_parts = blogname_lowercase.split('.');
+		var set_blogname_and_dropdown_values = function(blogname, dropdown) {
+			set_dropdown_value(dropdown);
+			$blogname.val(blogname);
+			return blogname_changed();
+		}
+		for(var i=0; i<tlds_longest_first.length; i++) {
+			if (endswith(blogname_lowercase, tlds_longest_first[i])) {
+				return set_blogname_and_dropdown_values($blogname.val().substr(0, blogname_lowercase.length - tlds_longest_first[i].length), tlds_longest_first[i]);
+			}
+			/* In second-level domains, replace the middle part, too.
+			Example: on baba.wordpress, set it correctly to baba / wordpress.com
+			*/
+			var tld_parts = tlds_longest_first[i].split('.');
+			if (tld_parts.length == 3 && endswith(blogname_lowercase, '.'+tld_parts[1])) {
+				return set_blogname_and_dropdown_values($blogname.val().substr(0, blogname_lowercase.length - 1 - tld_parts[1].length), tlds_longest_first[i]);
+			}
+		}
+		var set_domain= function(domain) {
+			var pos = domain.lastIndexOf('.');
+			var tld = domain.substr(pos);
+			var subdomain = domain.substr(0,pos);
+			if (subdomain != $blogname.val()) {
+				$blogname.val(subdomain);
+			}
+			if (tld != $domain_name.val()) {
+				set_dropdown_value(tld);
+				blogname_changed();
+			}
+					
+		}
+		var show_all_suggestions = function(domain_available) {
+			if (true == domain_available && domain_offer)
+				domain_available = {suggestions: [domain_offer]};
+
+			if (!domain_available.suggestions) return;
+			$('#blogname-suggestions').show();
+			$('#blogname-suggestions ul')
+			.html(function() {
+				var html = '';
+				for (i=0; i<domain_available.suggestions.length; ++i) {
+					html += '<li><a href="#">'+domain_available.suggestions[i]+'</a></li>';
+				}
+				return html;
+			})
+			.find('li a')
+			.click(function(e) {
+					e.preventDefault();
+					set_domain( $(this).html() );
+			});
+			//$('#blogname-purchase-no-thanks-free').text(default_free_blog_domain.substr(1));
+			//$('#blogname-purchase-no-thanks').show();
+		}
+		if ( $blogname.val() == '' ) {
+			$('#blogname-loading').hide();
+		} else if ( local_domain_name = is_free_blog_domain($domain_name.val()) ) {
+			// local blog
+			if ('www.' == $blogname.val().substr(0,4).toLowerCase())
+				$blogname.val($blogname.val().replace(/^(www\.)*/gi,''));	
+			var query = {q: $blogname.val().toLowerCase()}; // remember to set field to lower case
+			var blogaddr_free = $blogname.val().toLowerCase() + local_domain_name;
+			// tack on mlb switch if necessary
+			if ( local_domain_name == '.mlblogs.com' ) {
+				query.b = 'mlb';
+			}
+			query.ref = 'signup';
+			last_request = query.q;
+			// it's good to know the request for which we get a result
+			var blogname_check = function(sent_query) { 
+				return function(blogname_available) {
+					if (last_request != sent_query.q) return;
+					$('#blogname-loading').hide();
+					if (domains_checked[blogaddr_free] = (blogname_available == true)) {
+						$blogname.validState();
+						$('div.did-you-know').show();
+					} else {
+						$blogname.errorState();
+						$('#blogname-error').show().html(blogname_available.message);
+						$('#blogname-messagebox .choice-link').hide();
+						$('#blogname-focus').hide(); //do it again for IE8
+						$('#blogname-messagebox').show();
+						$('#blogname-taken').parents( 'tr' ).addClass('error');
+					}
+					set_submit_button_state();
+					show_suggestions(blogname_available);
+				}
+			}
+			$.post('/is-available/blog', query, blogname_check(query) , 'json'); 
+
+			var dotcom = $blogname.val().toLowerCase() + '.com';
+			var query = {q: dotcom}; // look for domain name availability of local blog
+			var domain_offer = false;
+			var dotcom_check = function(domain_available) {
+				if (domains_checked[dotcom] = (domain_available == true)) {
+					domain_offer = dotcom;
+				} else if (domain_available.suggestions && domain_available.suggestions.length) {
+					// look for alternates and offer that stuff
+					domain_offer = domain_available.suggestions[0];
+					$.each(domain_available.suggestions, function(_, value) {
+						domains_checked[value] = true;
+					});
+				}
+				show_suggestions(domain_available);
+			}
+			var show_suggestions = function(domain_available) {
+				if ( !domain_offer ) return;
+				if (false == domains_checked[blogaddr_free]) {
+					return show_all_suggestions(domain_available);
+				} else if (true != domains_checked[blogaddr_free])
+					return;
+				
+				$('#blogname-error').show().html('<span class="alternate">' + SignupL10n.domainAvailable.replace('%s', '<strong>'+domain_offer+'</strong>') + '</span>');
+				var tld_ar = domain_offer.split('.');
+				var tld = tld_ar[tld_ar.length-1];
+				var prices = $.parseJSON(SignupL10n.domainPrices);
+				$('#domain-price').html(prices[tld]);
+				$('#blogname-purchase-domain').show().click(function(e) {
+						e.preventDefault();
+						set_domain(domain_offer);
+				});
+				$('#blogname-suggestions').hide();
+				$('#blogname-purchase-domain-cancel-free').text(local_domain_name.substr(1));
+				$('#blogname-purchase-domain-cancel').show();
+				//$('#blogname-ok-message').text(SignupL10n.freeDomain.replace('%s', local_domain_name.substr(1)));
+				$('#blogname-messagebox').show();
+			}
+
+			if ( dotcom.length > 7 ) {
+				if (true != domains_checked[dotcom])
+					$.post('/is-available/domain', query, dotcom_check, 'json');
+				else
+					dotcom_check(1);
+			}
+		} else {
+			// non-local case
+
+			// subdomain case
+			// search blogname to see if it is a subdomain (and needs a mapping)
+			if ($blogname.val().indexOf('.') != -1) {
+				var is_subdomain = true;
+				var blogname = $blogname.val().substr($blogname.val().indexOf('.')+1).toLowerCase();
+			} else {
+				var is_subdomain = false;
+				var blogname = $blogname.val().toLowerCase();
+			}
+			var query = {q: blogname + $domain_name.val()}; // remember to set field to lower case
+			// custom domain 
+			var domain_callback = function(domain_available) {
+			
+				$('#blogname-loading').hide();
+				if (domains_checked[query.q] = (domain_available == true)) {
+					$blogname.validState();
+					var dom_ar = query.q.split('.');
+					var prices = $.parseJSON(SignupL10n.domainPrices);
+					var priceMsg = SignupL10n.domainCost;
+
+					// if a subdomain provided but domain is available, rewrite field to allow purchase of domain
+					if ( is_subdomain ) {
+						$blogname.val(query.q.substr(0,query.q.indexOf('.'))); //delete the tld from the form
+						value_monitoring.full_address = query.q; // so we don't run yet another domain check after showing the following message and the user tabs out of the refocused blogname field.
+						priceMsg = SignupL10n.subdomainErr;
+					}
+					
+					$('#blogname-ok-message').html(priceMsg.replace('%s', '<strong>'+query.q+'</strong>').replace('%d', prices[dom_ar[dom_ar.length-1]])).show();
+
+					// added: if user logged in, pop a warning
+					if ($user_pop.length) {
+						$user_pop.show();
+						$('#blogname-domain-user .choice-link').show();
+						$('#blogname-messagebox').show();
+					}
+				} else {
+					$blogname.errorState( domain_available );
+					if ( is_subdomain ) {
+						$('#blogname-error').show().html(SignupL10n.subdomainEntered);
+						$('#blogname-subdomain-ask').show();
+						$('#blogname-subdomain-ask .choice-link').show();
+					} else {
+						// Parse error for alternates "selectdomain.com is not available but you can have select-domain.com or select-domain.org"
+						show_all_suggestions(domain_available);
+						$('#blogname-error').show().html(domain_available.message);
+						$( '#blogname-domain-ask' ).show();
+						if (!(domain_available.error && domain_available.error == 'invalid')) $('#blogname-map-request').show();
+					}
+					$('#blogname-messagebox').show();
+				}
+				set_submit_button_state();
+			}
+			if (true != domains_checked[query.q])
+				$.post('/is-available/domain', query, domain_callback, 'json');
+			else
+				domain_callback(1);
+		}
+		value_monitoring.full_address = $blogname.val() + $domain_name.val();
+		set_submit_button_state();
+	};
+
+	// covers ?new=something at page load and error looping
+	if ( $blogname.length > 0 && $blogname.val() != '' ) {
+		blogname_changed();
+	}
+	$blogname.bindTypingEvents( {
+		timeout: 2000,
+		callback: blogname_changed
+	} );
+
+	$domain_name.change(blogname_changed);
+
+	// bind focus text on form fields
+	// (blur and focus for the selectbox is in selectbox.js)
+	$('#blogname-focus').hide();
+	$blogname.focus(set_blogname_focus_text);
+	$blogname.blur(function() {
+		$('#blogname-focus').hide();
+		$('#blogname-focus-free').hide();
+	});
+	
+	// The following covers blogname message box actions:
+	// Request domain mapping: This is the same as hiding the error since mapping/nomapping is the same
+	var map_request_click = function(e) {
+		e.preventDefault();
+		hide_messages_blogname();
+		// remove errors
+		$('#domain_row').removeClass('error');
+		$('#blogname-free').show();
+		// Make sure there is a warning.
+		$('#blogname-ok-message').html(SignupL10n.offerMapping).show();
+		$( '<input>' ).attr( { type: 'hidden', name: 'map_accepted', id: 'map-accepted', value: 1 } ).appendTo( $( '#setupform' ) );
+		set_submit_button_state(); 
+	};
+	// Cancel message: User just wants message to go away.
+	var blogname_cancel_click = function(e) {
+		e.preventDefault();
+		hide_messages_blogname();
+		$blogname.focus().select();
+		if (local_domain_name = is_free_blog_domain($domain_name.val())) {
+			$('#blogname-free').show();
+			$('#blogname-ok-message').show();
+			$('#blogname-ok-message').text(SignupL10n.freeDomain.replace('%s', local_domain_name.substr(1)));
+		}
+	}
+	// bind blogname-purchse-domain-cancel (.wordpress.com suggest domain names cancel link)
+	$('#blogname-purchase-domain-cancel').click(blogname_cancel_click);
+	// bind blogname-purchase-no-thanks link (domain name taken cancel link)
+	$('#blogname-purchase-no-thanks').click(function(e) {
+		e.preventDefault();
+		// Deal with MLB, but fail back to wordpress.com if something weird going on
+		if ( !local_domain_name ) {
+			set_dropdown_value(default_free_blog_domain);
+		} else {
+			set_dropdown_value(local_domain_name);
+		}
+		blogname_changed();
+	});
+	// bind blogname-map-request link (domain name mapping request)
+	$('#blogname-map-request').click(map_request_click);
+	// bind subdomain buttons
+	$('#blogname-subdomain-map-request').click(map_request_click);
+	$('#blogname-subdomain-map-cancel').click(blogname_cancel_click);
+	// bind user logged in popper
+	if ($user_pop) {
+		$('#blogname-domain-user-cancel').click(blogname_cancel_click);
+	}
+	// END BLOGNAME AND DOMAIN JAVASCRIPTS
+
+
+	// USERNAME and E-MAIL
+	var $user_name = $('#user_name');
+	var $user_email = $('#user_email');
+	
+	var add_login_prompt = function(obj, taken_name) {
+		if ( obj.error == 'taken' && jQuery("input[name='form_type']").val() != 'wpcom_connect' ) {
+			obj.message += ' <a href="/wp-login.php">'+SignupL10n.isTaken.replace('%s','<em>'+taken_name+'</em>')+'</a>';
+		}
+		return obj.message;
+	}
+
+	$('#pass1').bind('keyup change', function(){
+		$('#password_row').removeClass('error').find( '.error' ).html('');
+		set_submit_button_state();
+	});
+
+	// bind focus text on form fields
+	// (blur and focus for the selectbox is in selectbox.js)
+	$('#user_name-focus').hide();
+	$user_name.focus(function() {
+		if ( !$('#user_name-error').is(':visible') ) {
+			$('#user_name-focus').show();
+		}
+		if ($user_name.val() || !$blogname.length) { return; }
+		$user_name.val( $blogname.val().replace('-', '') );
+		user_name_changed();
+	});
+	$user_name.blur(function() {
+		$('#user_name-focus').hide();
+		//$('#user_name-error').show(); /* seems to cause error to show even though there is no error */
+	});
+	var user_name_changed = function() {
+		if ( has_placeholder_value( $user_name ) )
+			return;
+	
+		if ( ($user_name.val().length < 3) || $user_name.val() == value_monitoring.user_name ) {
+			if ($user_name.val() != value_monitoring.user_name)
+				$('#user_name_row').addClass('error');
+			set_submit_button_state();
+			return;
+		}
+		var query= {q: $user_name.val().toLowerCase()};
+		$user_name.val(query.q); // set field to lowercase value
+		$('#user_name-loading').show();
+		hide_messages('user_name');
+		$('#user_name_row').removeClass('error');
+		query.ref = 'signup';
+		$.post('/is-available/username', query, function(username_available) {
+			hide_messages('user_name');
+			$('#user_name-loading').hide();
+			if (username_available != true) {
+				$user_name.errorState( username_available );
+				if (username_available.error) {
+					username_available.message = add_login_prompt(username_available, query.q);
+				}
+				$('#user_name-error').show().html(username_available.message);
+			} else {
+				$user_name.validState();
+			}
+			set_submit_button_state();
+		}, 'json');
+		value_monitoring.user_name = $user_name.val();
+		set_submit_button_state();
+	};
+
+
+	//  bind blogname-purchase-no-thanks link
+
+	// covers ?user_name=something at page load and error looping
+	if ( $user_name.length > 0 && $user_name.val() != '' )
+		user_name_changed();
+		
+	$user_name.bindTypingEvents( {
+		timeout: 2000,
+		callback: user_name_changed
+	} );
+/*
+	$user_email.focus(function() {
+		if ($user_name.val()) return;
+		user_email_changed();
+	});
+*/
+	
+	var user_email_changed = function() {
+		if ( has_placeholder_value( $user_email ) )
+			return;
+	
+		if ($user_email.val().length < 3 || $user_email.val() == value_monitoring.user_email) {
+			if ($user_email.val() != value_monitoring.user_email)
+				$('#email-row').addClass('error');
+			set_submit_button_state();
+			return;
+		}
+		
+		var email_parts = $user_email.val().split('@');
+		if ( email_parts.length > 0 && $blogname.val() + $domain_name.val() == email_parts[1] ) {
+			if ($user_email.val() != value_monitoring.user_email)
+				$('#email-row').addClass('error');
+			set_submit_button_state();
+			return;
+		}
+
+		var query= {q: $user_email.val()};
+		$('#user_email-loading').show();
+		hide_messages('user_email');
+		query.ref = 'signup';
+		$.post('/is-available/email', query, function(email_available) {
+			hide_messages('user_email');
+			$('#user_email-loading').hide();
+			if (email_available != true) {
+				$user_email.errorState( email_available );
+				if (email_available.error) {
+					email_available.message = add_login_prompt(email_available, query.q);
+				}
+				$('#user_email-error').show().html(email_available.message);
+			} else {
+				$user_email.validState();
+				$('#email-row').removeClass('error');
+
+				var field_value_is_default = function ( $field ) {
+					return '' == $field.val() || has_placeholder_value( $field );
+				};
+
+				var update_field_value = function ( $field, value ) {
+					if ( field_value_is_default( $field ) && -1 != value )
+						$field.val( value ).removeClass( 'placeholdersjs' );
+				};
+				
+				var ajaxurl = '/wp-admin/admin-ajax.php';
+				var $username = $( '#user_name' );
+				if ( field_value_is_default( $username ) ) {
+					$.get( ajaxurl, {
+						'action': 'get_wordpress_username_suggestions',
+						'string': $user_email.val().split('@')[0]
+					}, function( result ) {
+						update_field_value( $username, result );
+					}, 'json' );
+				}
+				
+				// Do an additional check to see if we're disabling domain prefilling for an experiment
+				var $blogname = $( '#blogname' );
+				if ( field_value_is_default( $blogname ) && ! ( window.SignupL10n && SignupL10n.blogname_prefill == 'false' ) ) {
+					$.get( ajaxurl, {
+						'action': 'get_wordpress_domain_suggestions',
+						'string': $user_email.val().split('@')[0]
+					}, function( result ) {
+						update_field_value( $blogname, result[0] );
+						blogname_changed();
+					}, 'json' );
+				}
+			}
+			set_submit_button_state();
+		}, 'json');
+		value_monitoring.user_email = $user_email.val();
+		set_submit_button_state();
+	};
+	
+	// covers ?user_email=test@test.com at page load and error looping
+	if ( $user_email.length > 0 && $user_email.val() != '' )
+		user_email_changed();
+
+	//bind typing events on the user email field
+	$user_email.bindTypingEvents( {
+		timeout: 1200,
+		callback: user_email_changed,
+		captureLength: 6
+	} );
+
+	var before_only_username_form_type = 'blog';
+	
+	$('.signup-button').not('.signup-submit input').bind('click', function() { 
+    	$('.signup-button').unbind('click'); 
+    	$('.signup-button input').trigger('click');
+	}); 
+ 	
+	// BLOG TITLE
+	var $blog_title = $('#blog_title');
+	$blog_title.focus(function() {
+		$('#blog_title-focus').show();
+	});
+	$blog_title.blur(function() {
+		$('#blog_title-focus').hide();
+	});
+	var blog_title_changed = function() {
+		$('#blog_title_row').toggleClass('error', $blog_title.val().length == 0);
+		hide_messages('blog_title');
+		set_submit_button_state();
+	}
+	$blog_title.typeWatch({callback: blog_title_changed}).blur(blog_title_changed);
+	// END BLOG TITLE
+
+	// BLOG LANGUAGE
+	$('#blog_lang').focus(function() {
+		$('#blog_lang-focus').show();
+		$('#blog_lang_row').addClass('hilite');
+	});
+	$('#blog_lang').blur(function() {
+		$('#blog_lang-focus').hide();
+		$('#blog_lang_row').removeClass('hilite');
+	});
+	// END BLOG LANGUAGE
+
+	// BLOG PRIVACY
+	$('#blog_public').focus(function() {
+		//$('#blog_public-focus').show();
+		$('#blog_public_row').addClass('hilite');
+	});
+	$('#blog_public').blur(function() {
+		//$('#blog_publci-focus').hide();
+		$('#blog_public_row').removeClass('hilite');
+	});
+	$('#blog_public').change(function(e) {
+		$('#blog_public-ok-message span').hide();
+		$('#blog_public-msg-'+$(this).val()).show();
+	});
+	// edge case, reload page w/firefox prefil
+	$('#blog_public-ok-message span').hide();
+	$('#blog_public-msg-'+$('#blog_public').val()).show();
+	
+	// END BLOG PRIVACY
+	
+	//this relies on deprecated jQuery functions, so we should try to find a better solution
+	var is_ie10 = function () {
+		return $.browser.msie && $.browser.version > 9;
+	};
+
+	var first_input = $('#setupform :input:visible:enabled:first');
+	if ( ! ( is_ie10() && first_input[0].hasAttribute( 'placeholder' ) ) ) { //if there is a placeholder don't focus in IE10 as the placeholders are hidden on focus
+		first_input.focus();
+	}
+
+	var signup_submited = false;
+	$('#setupform').submit(function() {
+		if ( signup_submited ) return false;
+		signup_submited = true;
+		document.setupform.action='/signup/?' + document.setupform.form_type.value + '=1';
+	});
+
+	var supports_input_type = function(type) {
+		var input = document.createElement('input');
+  		input.setAttribute('type', type);
+  		return !!(input.type !== 'text');
+	}
+	if (supports_input_type('email')) {
+		var emailbox = document.getElementById('user_email')
+		if (emailbox) {
+	  		emailbox.type = 'email';
+			emailbox.autocomplete = 'on';
+		}
+	}
+	
+	set_submit_button_state();
+
+	/*  //leave it as a standard dropdown (@nb)
+	$('#language').sb({
+		animDuration: 0,
+		fixedWidth: true,
+		selectboxClass: 'selectbox'
+	});
+	$('#language .display').focus(function() {
+		$('#language-focus').show();
+		$(this).parents("tr").addClass('hilite');
+	}); 
+	/* */
+	$('#language').focus(function() {
+		$('#language-focus').show();
+		$(this).parents("tr").addClass('hilite');
+	}); 
+	$('#language').blur(function() {
+		$('#language-focus').hide();
+		$(this).parents("tr").removeClass('hilite');
+	}); 
+	$('#wpcom-address .arrow').html('&#9660;');
+	$('#wpcom-address .display').focus(function() {
+		$('#blogname-focus').show();
+		$(this).parents("tr").addClass('hilite');
+	}); 
+	$('#wpcom-address .display').blur(function() {
+		$('#blogname-focus').hide();
+		$(this).parents("tr").removeClass('hilite');
+	}); 
+	$('#wpcom-address ul.items a').click(function() { 
+		setTimeout( function() {
+			$('#blogname').focus(); 
+	
+			var default_input_width_px = 587;
+			var offset_px = 15;
+			
+			var new_padding_px = $( 'a.display' ).outerWidth() + offset_px;
+			var new_width_px = default_input_width_px - new_padding_px;
+
+			// check width of select box
+			$('#blogname').css( { 'padding-right': new_padding_px + 'px', 'width': new_width_px + 'px' } );
+		}, 500 );
+			
+	});
+	
+	$( '.bundle-button' ).click( function( event ) {
+		event.stopPropagation();  
+		event.preventDefault();
+		$( '<input>' ).attr({
+			type: 'hidden',
+			name: 'tos',
+			value: '1'
+		}).appendTo( $( '#setupform' ) );
+
+		$( '<input>' ).attr({
+			type: 'hidden',
+			name: $(this).attr( 'name' )
+		}).appendTo( $( '#setupform' ) );
+		$( '#setupform' ).submit();
+	});
+	
+	$( '#upsell-button' ).click( function() {
+		if ( $(this).hasClass( 'disabled') ) {
+			return;
+		}
+		$( '#signup' ).hide();
+		$( '<div id="panel-holder"></div>').appendTo( "#wrapper" );
+		$( '#panel-holder' ).spin();
+		$( '#panel-table' ).appendTo( '#panel-holder' );
+		setTimeout(function(){
+			$( '#panel-holder' ).spin( false );
+			$( '#panel-table' ).show();
+			$( 'html, body' ).animate({ scrollTop: 0 }, 'slow' );
+			set_submit_button_state();
+		}, 1500 );
+	});
+	
+	$( '#bundle-row .upgrade-table table td a' ).mouseenter( function() {
+		var thisLink = $( this ),
+			thisDesc = thisLink.attr( 'desc' );
+
+		if ( ( thisDesc !== undefined ) && ( 0 === thisLink.find( 'div' ).length ) ) {
+			thisLink.append( '<div class="bundle-desc">' + thisDesc + '<div></div></div>' );
+
+			var thisHeight = thisLink.find( 'div.bundle-desc' ).height() + 42;
+
+			thisLink.find( 'div.bundle-desc' ).css( 'top', ( thisLink.position().top - thisHeight ) + 'px' );
+		}
+	}).mouseleave( function() {
+		$( this ).find( 'div.bundle-desc' ).remove();
+	});
+
+	if ( hasTooltipster ) {
+		$( '.tooltip' ).tooltipster({
+			offsetX: 360,
+			offsetY: 0,
+			position: 'top-right',
+		});
+		toggleSubmitTooltip( true );
+	}
+
+});
+;
