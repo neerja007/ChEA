@@ -46,6 +46,7 @@ removed the black "follow" link at the bottom of homepage and about us
 removed the top signup in about us
 changed heading in aboutus
 changed "blog"to "home" in homepage..
+changed top tags of home and about us..cant click home if we are already at home..
 
 Akshay:
 
