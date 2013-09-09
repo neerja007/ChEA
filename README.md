@@ -39,6 +39,7 @@ Minor changes which need to be reverted in About-Us.html
 finished about us
 added dropdown in archivewordpress and about us(about2)
 added a footer
+removed twitter updates in home page
 
 Akshay:
 
