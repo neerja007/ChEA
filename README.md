@@ -36,6 +36,9 @@ Aditya:
 Testing in a achive page (Do NOT erase the contents of pages, please comment them)
 Changed the header in Blog.htm
 Minor changes which need to be reverted in About-Us.html
+finished about us
+added dropdown in archivewordpress and about us(about2)
+added a footer
 
 Akshay:
 
