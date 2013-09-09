@@ -37,9 +37,14 @@ Aditya:
 Testing in a achive page (Do NOT erase the contents of pages, please comment them)
 Changed the header in Blog.htm
 Minor changes which need to be reverted in About-Us.html
+finished about us
+added dropdown in archivewordpress and about us(about2)
+added a footer
+removed twitter updates in home page
+linked home to about us (file name=about 2) .. and about us to home...
 
 Akshay:
 
 Reverted duplicate files of Oxygen template.
-Changed the tab<image algnment & styles> to <people> consisting of <students,Faculty,Staff> 
+Changed the tab<image alignment & styles> to <people> consisting of <students,Faculty,Staff> 
 
