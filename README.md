@@ -40,6 +40,7 @@ finished about us
 added dropdown in archivewordpress and about us(about2)
 added a footer
 removed twitter updates in home page
+linked home to about us (file name=about 2) .. and about us to home...
 
 Akshay:
 
