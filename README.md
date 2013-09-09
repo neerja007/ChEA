@@ -45,5 +45,5 @@ linked home to about us (file name=about 2) .. and about us to home...
 Akshay:
 
 Reverted duplicate files of Oxygen template.
-Changed the tab<image algnment & styles> to <people> consisting of <students,Faculty,Staff> 
+Changed the tab<image alignment & styles> to <people> consisting of <students,Faculty,Staff> 
 
