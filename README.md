@@ -42,6 +42,13 @@ added dropdown in archivewordpress and about us(about2)
 added a footer
 removed twitter updates in home page
 linked home to about us (file name=about 2) .. and about us to home...
+linked aboutus to "homepage" and not "archive wordpress"
+removed the black "follow" link at the bottom of homepage and about us
+removed the top signup in about us
+changed heading in aboutus
+changed "blog"to "home" in homepage..
+changed top tags of home and about us..cant click home if we are already at home..
+started faculty..did scb half..will do rest tomm..
 
 Akshay:
 
