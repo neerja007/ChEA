@@ -24,6 +24,7 @@ Removed the Sign up for wordpress in homepage.
 The page layout was changed (Top blank portion removed)
 Main page redirection was modified.
 Added a new tab About Us.
+Added dropdowns for each tab.
 
 Senthil:
 
