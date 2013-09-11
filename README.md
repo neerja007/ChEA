@@ -55,3 +55,4 @@ Akshay:
 Reverted duplicate files of Oxygen template.
 Changed the tab<image alignment & styles> to <people> consisting of <students,Faculty,Staff> 
 
+vasu:
