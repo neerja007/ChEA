@@ -40,5 +40,5 @@ Minor changes which need to be reverted in About-Us.html
 Akshay:
 
 Reverted duplicate files of Oxygen template.
-Changed the tab<image algnment & styles> to <people> consisting of <students,Faculty,Staff> 
+
 
