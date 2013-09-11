@@ -48,7 +48,7 @@ removed the top signup in about us
 changed heading in aboutus
 changed "blog"to "home" in homepage..
 changed top tags of home and about us..cant click home if we are already at home..
-started faculty..did scb half..will do rest tomm..
+started faculty..did scb, anantaraman..will finish rest tomm.. individual pages to be done
 
 Akshay:
 
