@@ -31,7 +31,6 @@ Senthil:
 Title of home page changed.
 Page header changes to chemical dept of nitt.
 Header modified (mouseover).
-Created Accredited programme tag on left side, page needs to be edited.
 
 Aditya:
 
