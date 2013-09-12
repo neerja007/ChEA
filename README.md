@@ -32,6 +32,7 @@ Title of home page changed.
 Page header changes to chemical dept of nitt.
 Header modified (mouseover).
 Accredited Programmes page done and the tab added on left side of Home and Accredited Programmes.
+Staff page done and appropriate links given for home, faculty and staff.
 
 Aditya:
 
