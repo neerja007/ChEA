@@ -1,0 +1,7 @@
+ErrorDocument 400 /errors/badrequest.html
+ErrorDocument 401 "<body bgcolor=#ffffff><h1>You have
+ to actually <b>BE</b> a <a href="#">member</A> to view 
+this page, Colonel!"
+ErrorDocument 403 /errors/forbid.html
+ErrorDocument 404 /errors/notfound.html
+ErrorDocument 500 /errors/serverr.html
