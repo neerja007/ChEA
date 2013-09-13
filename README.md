@@ -17,6 +17,10 @@ Added all oxygen template .htm pages along with the recquired image files,javasc
 Page redirection for the Home page.html is complete.
 All links made offline.
 
+please : edit fonts and styling and sizes and all in faculty and all in faculty and linked pages..and also, use proper words like "academic profile" and not "qualifications" like i did (by aditya)
+and also check the breaks..put uniform < br > tags.. i think i may ve put them randomly
+bullent differenciation for sub menus in faculty
+
 
 Neerja:
 
