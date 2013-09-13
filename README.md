@@ -31,6 +31,8 @@ Senthil:
 Title of home page changed.
 Page header changes to chemical dept of nitt.
 Header modified (mouseover).
+Accredited Programmes page done and the tab added on left side of Home and Accredited Programmes.
+Staff page done and appropriate links given for home, faculty and staff.
 
 Aditya:
 
@@ -48,10 +50,17 @@ removed the top signup in about us
 changed heading in aboutus
 changed "blog"to "home" in homepage..
 changed top tags of home and about us..cant click home if we are already at home..
-started faculty..did scb, anantaraman..will finish rest tomm.. individual pages to be done
+faculty main page done.. will start on the individual pages in a while..should take 2-3 hours :/
+finished anantaramn,scb,tkr,skp, sivashanmugam, hjp
+noone touch faculty site..
+
+get list of publications from ananataraman..links dont work on nitt site
 
 Akshay:
 
 Reverted duplicate files of Oxygen template.
 Changed the tab<image alignment & styles> to <people> consisting of <students,Faculty,Staff> 
+
+vasu:
+B.Tech node continued till curriculum for 8 sem
 
