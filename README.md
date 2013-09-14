@@ -60,7 +60,7 @@ faculty main page done.. will start on the individual pages in a while..should t
 finished anantaramn,scb,tkr,skp, sivashanmugam, hjp, meera, premalatha, kalaichelvi,artha,arivazhagan
 noone touch faculty site..
 
-get list of publications from ananataraman..links dont work on nitt site
+
 
 Akshay:
 
