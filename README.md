@@ -21,8 +21,7 @@ Kalaichelvi Page corrected.
 
 please : edit fonts and styling and sizes and all in faculty and all in faculty and linked pages..and also, use proper words like "academic profile" and not "qualifications" like i did (by aditya)
 and also check the breaks..put uniform < br > tags between different headings.. i think i may ve put them randomly
-bullen differenciation for sub menus in faculty
-
+bullen differenciation for sub menus in faculty.
 see a bit about table tag and try to get the borders proper or remove them completely..
 
 Neerja:
