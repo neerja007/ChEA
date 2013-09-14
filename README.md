@@ -2,7 +2,7 @@ This readme should be updated regularly. Please feel free to add or update conte
 
 Checklist : (according to priority)
 
-*Content - 'research programmes' to be completed.
+*Content - 'research programmes' to be completed. (Academic Programmes completed)
 *Proper styling and fonts to be applied, tables to be made proper.
 *Tab names to be changed in all pages (Academic Programmes completed)
 *The pages should redirect properly to the appropriate .html page. currently its retriving the page from the server(online).
@@ -24,7 +24,10 @@ E-mail ids for faculties added.
 Faculty Pages modified. Fonts and sizes made uniform.
 IIT-Madras Civil Resources - files added.
 Academic Programmes : B.Tech and M.Tech - rendundant links after content in each page removed, titles changed appropriately.
+Academics - links redirected.
+ParentPage.htm - corresponding content and links given.
 
+Fonts and styles : to be improved.
 Table borders not uniform : to be done properly.
 Links to pages from faculty.htm redirects to nitt.edu : needs to be corrected.
 
