@@ -18,9 +18,11 @@ Page redirection for the Home page.html is complete.
 All links made offline.
 
 please : edit fonts and styling and sizes and all in faculty and all in faculty and linked pages..and also, use proper words like "academic profile" and not "qualifications" like i did (by aditya)
-and also check the breaks..put uniform < br > tags.. i think i may ve put them randomly
-bullent differenciation for sub menus in faculty
-
+and also check the breaks..put uniform < br > tags between different headings.. i think i may ve put them randomly
+bullen differenciation for sub menus in faculty
+kalaichelvi
+add email ids
+see a bit about table  tag and try to get the borders proper or remove them completely..
 
 Neerja:
 
@@ -55,7 +57,7 @@ changed heading in aboutus
 changed "blog"to "home" in homepage..
 changed top tags of home and about us..cant click home if we are already at home..
 faculty main page done.. will start on the individual pages in a while..should take 2-3 hours :/
-finished anantaramn,scb,tkr,skp, sivashanmugam, hjp
+finished anantaramn,scb,tkr,skp, sivashanmugam, hjp, meera, premalatha, kalaichelvi,artha,arivazhagan
 noone touch faculty site..
 
 get list of publications from ananataraman..links dont work on nitt site
