@@ -22,6 +22,7 @@ All links made offline.
 E-mail ids for faculties added.
 Faculty Pages modified. Fonts and sizes made uniform.
 IIT-Madras Civil Resources - files added.
+Academic Programmes : B.Tech and M.Tech - rendundant links after content in each page removed.
 
 Table borders not uniform : to be done properly.
 Links to pages from faculty.htm redirects to nitt.edu : needs to be corrected.
