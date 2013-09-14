@@ -2,11 +2,13 @@ This readme should be updated regularly. Please feel free to add or update conte
 
 Checklist : (according to priority)
 
-*Main content and page layout for each tab yet to be decided
+*Content - 'academics' to be completed, vasu doing it.
+*Proper styling and fonts to be applied, tables to be made proper.
+*Tab names to be changed in all pages.
 *The pages should redirect properly to the appropriate .html page. currently its retriving the page from the server(online).
-*Content
-*Photos/images should be decided and put up
-*the sides tabs should contain links to download useful papers, info, booklets etc
+*Photos/images should be decided and put up.
+*the sides tabs should be decided, should contain links to download useful papers, info, booklets etc.
+*Redundant and inappropriate content to be removed.
 *login / permissions should be implemented
 *SEARCH links should be implemented
 
