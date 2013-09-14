@@ -32,7 +32,7 @@ The page layout was changed (Top blank portion removed)
 Main page redirection was modified.
 Added a new tab About Us.
 Added dropdowns for each tab.
-
+Added links to PLacements and each company opens in a new tab.
 Senthil:
 
 Title of home page changed.
