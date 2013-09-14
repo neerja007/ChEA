@@ -7,7 +7,8 @@ Checklist : (according to priority)
 *Content
 *Photos/images should be decided and put up
 *the sides tabs should contain links to download useful papers, info, booklets etc
-*login / permissions hould be implemented
+*login / permissions should be implemented
+*SEARCH links should be implemented
 
 
 
@@ -17,9 +18,11 @@ Added all oxygen template .htm pages along with the recquired image files,javasc
 Page redirection for the Home page.html is complete.
 All links made offline.
 E-mail ids for faculties added.
-Kalaichelvi Page corrected.
+Faculty Pages modified. Fonts and sizes made uniform.
+IIT-Madras Civil Resources - files added.
 
-please : edit fonts and styling and sizes and all in faculty and all in faculty and linked pages..and also, use proper words like "academic profile" and not "qualifications" like i did (by aditya)
+please : edit fonts and styling and sizes and all in faculty and all in faculty and linked pages..and also, use proper words like "academic profile" 
+and not "qualifications" like i did (by aditya)
 and also check the breaks..put uniform < br > tags between different headings.. i think i may ve put them randomly
 bullen differenciation for sub menus in faculty.
 see a bit about table tag and try to get the borders proper or remove them completely..
