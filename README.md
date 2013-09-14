@@ -21,11 +21,8 @@ E-mail ids for faculties added.
 Faculty Pages modified. Fonts and sizes made uniform.
 IIT-Madras Civil Resources - files added.
 
-please : edit fonts and styling and sizes and all in faculty and all in faculty and linked pages..and also, use proper words like "academic profile" 
-and not "qualifications" like i did (by aditya)
-and also check the breaks..put uniform < br > tags between different headings.. i think i may ve put them randomly
-bullen differenciation for sub menus in faculty.
-see a bit about table tag and try to get the borders proper or remove them completely..
+Table borders not uniform : to be done properly.
+Links to pages from faculty.htm redirects to nitt.edu : needs to be corrected.
 
 Neerja:
 
@@ -35,6 +32,7 @@ Main page redirection was modified.
 Added a new tab About Us.
 Added dropdowns for each tab.
 Added links to PLacements and each company opens in a new tab.
+
 Senthil:
 
 Title of home page changed.
@@ -64,8 +62,6 @@ changed top tags of home and about us..cant click home if we are already at home
 faculty main page done.. will start on the individual pages in a while..should take 2-3 hours :/
 finished anantaramn,scb,tkr,skp, sivashanmugam, hjp, meera, premalatha, kalaichelvi,artha,arivazhagan
 noone touch faculty site..
-
-
 
 Akshay:
 
