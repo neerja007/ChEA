@@ -8,6 +8,7 @@ Checklist : (according to priority)
 *The pages should redirect properly to the appropriate .html page. currently its retriving the page from the server(online).
 *Photos/images should be decided and put up.
 *The side tabs should be decided, should contain links to download useful papers, info, booklets etc.
+*Top "Sign Up" part needs to be removed.
 *Redundant and inappropriate content to be removed.
 *SEARCH links should be implemented
 *login / permissions should be implemented
@@ -21,11 +22,12 @@ Added all oxygen template .htm pages along with the recquired image files,javasc
 Page redirection for the Home page.html is complete.
 All links made offline.
 E-mail ids for faculties added.
-Faculty Pages modified. Fonts and sizes made uniform.
+Faculty pages modified. Fonts and sizes made uniform.
 IIT-Madras Civil Resources - files added.
 Academic Programmes : B.Tech and M.Tech - rendundant links after content in each page removed, titles changed appropriately.
 Academics - links redirected.
-ParentPage.htm - corresponding content and links given.
+ParentPage.htm , ParentPage_FirstChild.htm - corresponding content and links given.
+Placement and about us links in admn_prcd redirected, title changed.
 
 Fonts and styles : to be improved.
 Table borders not uniform : to be done properly.
