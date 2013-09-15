@@ -63,6 +63,7 @@ Accredited Programmes page done and the tab added on left side of Home and Accre
 Staff page done and appropriate links given for home, faculty and staff.
 Alchemy page done.
 ChEA page done.
+Tab names changed and properly redirected in people,placements,facilities & services,about us and their sub-pages;have to do the same in academics and individual faculty pages.
 
 Aditya:
 
