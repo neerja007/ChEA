@@ -2,13 +2,16 @@ This readme should be updated regularly. Please feel free to add or update conte
 
 Checklist : (according to priority)
 
+*TABS TO BE COPIED
+*PAGE LAYOUT AND DESIGN TO BE DECIDED
+*update faculty content
 *Content - 'research programmes' to be completed. (Academic Programmes completed)
 *Proper styling and fonts to be applied, tables to be made proper.
 *Tab names to be changed in all pages (Academic Programmes completed)
 *The pages should redirect properly to the appropriate .html page. currently its retriving the page from the server(online).
 *Photos/images should be decided and put up.
 *The side tabs should be decided, should contain links to download useful papers, info, booklets etc.
-*Top "Sign Up" part needs to be removed.
+*Top "Sign Up" part and bottom follow needs to be removed.
 *Redundant and inappropriate content to be removed.
 *SEARCH links should be implemented
 *login / permissions should be implemented
