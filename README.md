@@ -16,6 +16,13 @@ Checklist : (according to priority)
 *SEARCH links should be implemented
 *login / permissions should be implemented
 
+SUGGESTIONS FOR LAYOUT
+
+*Photos should be centered - more catchy. Left and right corners can be used.
+*Right side of HomePage.htm can have news and updates(scrolling text) - with start/stop.
+*A link to ChEA monthly magazines on the left after the side tabs
+*Remove more articles, recent articles after the photos.
+*"Quick links" - useful links, imp. links, downloads, contact us/feedback at the bottom
 
 
 
