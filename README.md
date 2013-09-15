@@ -5,7 +5,14 @@ Checklist : (according to priority)
 *TABS TO BE COPIED
 *PAGE LAYOUT AND DESIGN TO BE DECIDED
 *update faculty content
-*Content - 'research programmes' to be completed. (Academic Programmes completed)
+*google map to be embedded in the contact us (new tab to be added)
+*research and consultancy tab to be added in the top
+*Projects to be deleted in side tabs
+*Shift student activities from people to side tabs
+*PHD students to be added in people
+*Heading to be changed NIT Trichy to be made National...Tech,Thrich and font increase.
+*"recent post" should have upcoming news/highlights 
+*Content - 'research programmes' to be completed. (Academic Programmes completed
 *Proper styling and fonts to be applied, tables to be made proper.
 *Tab names to be changed in all pages (Academic Programmes completed)
 *The pages should redirect properly to the appropriate .html page. currently its retriving the page from the server(online).
