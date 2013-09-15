@@ -2,26 +2,25 @@ This readme should be updated regularly. Please feel free to add or update conte
 
 Checklist : (according to priority)
 
-*TABS TO BE COPIED
-*PAGE LAYOUT AND DESIGN TO BE DECIDED
+*library link to be added in e-resources(neerja)
+*TABS TO BE COPIED(adi)
+*PAGE LAYOUT AND DESIGN TO BE DECIDED(adi)
 *update faculty content
-*google map to be embedded in the contact us (new tab to be added)
-*research and consultancy tab to be added in the top
-*Projects to be deleted in side tabs
-*Shift student activities from people to side tabs
-*PHD students to be added in people
-*Heading to be changed NIT Trichy to be made National...Tech,Thrich and font increase.
-*"recent post" should have upcoming news/highlights 
-*Content - 'research programmes' to be completed. (Academic Programmes completed
+*google map to be embedded in the contact us (new tab to be added)(neerja)
+*research and consultancy tab to be added in the top(adi)
+*Projects to be deleted in side tabs(adi)
+*Shift student activities from people to side tabs(adi)
+*PHD students to be added in people(adi)
+*Heading to be changed NIT Trichy to be made National...Tech,Thrich and font increase.(adi)
+*"recent post" should have upcoming news/highlights (neerja)
+*Content - 'research programmes' to be completed. (Academic Programmes completed)
 *Proper styling and fonts to be applied, tables to be made proper.
-*Tab names to be changed in all pages (Academic Programmes completed)
-*The pages should redirect properly to the appropriate .html page. currently its retriving the page from the server(online).
-*Photos/images should be decided and put up.
-*The side tabs should be decided, should contain links to download useful papers, info, booklets etc.
-*Top "Sign Up" part and bottom follow needs to be removed.
-*Redundant and inappropriate content to be removed.
+*Photos/images should be decided and put up.(akshay)
+*Top "Sign Up" part and bottom follow needs to be removed.(adi)
+*Redundant and inappropriate content to be removed.(adi)
 *SEARCH links should be implemented
 *login / permissions should be implemented
+
 
 SUGGESTIONS FOR LAYOUT
 
