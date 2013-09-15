@@ -38,6 +38,8 @@ Academic Programmes : B.Tech and M.Tech - rendundant links after content in each
 Academics - links redirected.
 ParentPage.htm , ParentPage_FirstChild.htm - corresponding content and links given.
 Placement and about us links in admn_prcd redirected, title changed.
+E-Resources content completed, links redirected.
+Tried a trial design for HomePage.
 
 Fonts and styles : to be improved.
 Table borders not uniform : to be done properly.
