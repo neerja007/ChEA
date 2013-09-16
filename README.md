@@ -4,13 +4,13 @@ Checklist : (according to priority)
 
 *library link to be added in e-resources(neerja)
 *TABS TO BE COPIED(adi)
-*PAGE LAYOUT AND DESIGN TO BE DECIDED(adi)
+*PAGE LAYOUT AND DESIGN TO BE DECIDED
 *update faculty content
 *google map to be embedded in the contact us (new tab to be added)(neerja)
 *research and consultancy tab to be added in the top(adi)
-*Projects to be deleted in side tabs(adi)
-*Shift student activities from people to side tabs(adi)
-*PHD students to be added in people(adi)
+*Projects to be deleted in side tabs(adi) //
+*Shift student activities from people to side tabs(adi)//
+*PHD students to be added in people(adi)//
 *Heading to be changed NIT Trichy to be made National...Tech,Thrich and font increase.(adi)
 *"recent post" should have upcoming news/highlights (neerja)
 *Content - 'research programmes' to be completed. (Academic Programmes completed)
