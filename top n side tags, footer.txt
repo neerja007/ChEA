@@ -1,8 +1,24 @@
+to be copied
+	title, heading, logo, top, side, newsletters,chemical pumps...., footer
+
 current   
 
 <li id="menu-item-146" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item 146"><a href="Home page.htm">Home</a> </li>
 
 
+
+header		
+
+
+<hgroup>
+			
+			<!--<h1 class="site-title"><a href="./Home Page_files/Home Page.htm" title="Oxygen" rel="home">Oxygen</a><--h1>
+			<h2 class="site-description"> Minimalistic, mobile-optimized magazine for WordPress.com</h2>-->
+			<h1 class="site-title"><a href="./Home Page_files/Home Page.htm" title="Department of Chemical Engineering" rel="home">Department of Chemical Engineering</a><img src="./Home Page_files/l.jpg" width="100" height="100" > </h1>
+			<h2  class="site-description"> NATIONAL INSTITUTE OF TECHNOLOGY TIRUCHIRAPPALLI</h2>
+		</hgroup>
+		
+		
 
 top .site-header -->
 
@@ -21,7 +37,7 @@ top .site-header -->
 			<div class="assistive-text skip-link"><a href="http://oxygendemo.wordpress.com/#content" title="Skip to content">Skip to content</a></div>
 <div class="menu-main-menu-container"><ul id="menu-main-menu" class="menu"><!--<li id="menu-item-147" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-147"><a href="http://oxygendemo.wordpress.com/">Home</a></li> -->
 <li id="menu-item-146" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item 146"><!--<a href="Home%20Page.htm">--><a href="Home page.htm">Home</a> </li>
-<li id="menu-item-136" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-136"><a href="Parent Page.htm">Academics</a>
+<li id="menu-item-136" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-136"><a href="Parent Page.htm">Programmes</a>
 <ul class="sub-menu">
 	<li id="menu-item-137" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-137"><a href="http://oxygendemo.wordpress.com/a-parent-page/first-child/">Research Programmes</a>
 		<ul class="sub-menu">
@@ -143,11 +159,46 @@ side		<!-- .menu-secondary -->
 
 
 
+newsletters       archives
+					1nov2011
+
+
+			<aside id="archives-2" class="widget widget_archive"><h1 class="widgettitle">Newsletters</h1>	
+					<ul>
+						<li><a href="./newsletters/1nov2011.pdf" title="November 2011">November 2011</a></li>
+						<li><a href="./newsletters/2dec2011.pdf" title="December 2011">December 2011</a></li>
+						<li><a href="./newsletters/3jan2012.pdf" title="January 2012">January 2012</a></li>
+						<li><a href="./newsletters/4feb2012.pdf" title="February 2012">February 2012</a></li>
+						<li><a href="./newsletters/5july2012.pdf" title="July 2012">July 2012</a></li>
+						<li><a href="./newsletters/6oct2012.pdf" title="October 2012">October 2012</a></li>
+						<li><a href="./newsletters/7nov2012.pdf" title="November 2012">November 2012</a></li>
+						
+					</ul>
+			</aside>
+
+			
+			
+			
+chemicals  #secondary .widget-area -->
+
+
+
+<aside id="wp_tag_cloud-2" class="widget wp_widget_tag_cloud"><h1 class="widgettitle"></h1><div style="overflow:hidden"><a href="http://oxygendemo.wordpress.com/tag/announcement/" class="tag-link-290" title="7 topics" style="font-size: 22pt;">Chemicals</a>
+<a href="Archives-Beautiful.htm" class="tag-link-63485" title="1 topic" style="font-size: 8pt;">Pumps</a>
+<a href="Archives-Collaboration.htm" class="tag-link-15888" title="2 topics" style="font-size: 12.2pt;">Distillation</a>
+<a href="Archives-Landscape.htm" class="tag-link-11201" title="1 topic" style="font-size: 8pt;">Catalyst</a>
+<a href="Archives-Panache.htm" class="tag-link-2099222" title="6 topics" style="font-size: 20.833333333333pt;">Bernoulli</a>
+<a href="Archives-Professional.htm" class="tag-link-7830" title="2 topics" style="font-size: 12.2pt;">Simulation</a>
+<a href="Archives-Punctilious.htm" class="tag-link-15533766" title="3 topics" style="font-size: 15pt;">Process</a>
+<a href="Archives-Theme.htm" class="tag-link-4262" title="2 topics" style="font-size: 12.2pt;">NPSH</a>
+<a href="Archives-Thermonuclear.htm" class="tag-link-1214778" title="3 topics" style="font-size: 15pt;">extraction</a></div></aside>			
+
 
 bottom <script
 
 
-	<div id="supplementary" class="clear-fix four">
+
+<div id="supplementary" class="clear-fix four">
 		<div id="footer-sidebar-one" class="widget-area" role="complementary">
 		<aside id="linkcat-1356" class="widget widget_links"> 
 		<!--<h1 class="widgettitle">Blogroll</h1>
@@ -164,15 +215,23 @@ bottom <script
 	</ul> -->
 </aside> 
 	</div><!-- #first .widget-area -->
-	
+			
+			
+			
 		<div id="footer-sidebar-two" class="widget-area" role="complementary">
-		<aside id="archives-3" class="widget widget_archive"><h1 class="widgettitle">Newsletters</h1>		<ul>
-			<li><a href="Archives-Monthly_February2012.htm" title="February 2012">February 2012</a></li>
-	<li><a href="Archives-Monthly_September2011.htm" title="September 2011">September 2011</a></li>
-	<li><a href="Archives-Monthly_July2011.htm" title="July 2011">July 2011</a></li>
-	<li><a href="Archives-Monthly_June2011.htm" title="June 2011">June 2011</a></li>
-		</ul>
-</aside>	</div><!-- #second .widget-area -->
+		<aside id="archives-3" class="widget widget_archive"><h1 class="widgettitle">Newsletters</h1>
+
+					<ul>
+						<li><a href="./newsletters/1nov2011.pdf" title="November 2011">November 2011</a></li>
+						<li><a href="./newsletters/2dec2011.pdf" title="December 2011">December 2011</a></li>
+						<li><a href="./newsletters/3jan2012.pdf" title="January 2012">January 2012</a></li>
+						<li><a href="./newsletters/4feb2012.pdf" title="February 2012">February 2012</a></li>
+						<li><a href="./newsletters/5july2012.pdf" title="July 2012">July 2012</a></li>
+						<li><a href="./newsletters/6oct2012.pdf" title="October 2012">October 2012</a></li>
+						<li><a href="./newsletters/7nov2012.pdf" title="November 2012">November 2012</a></li>
+					</ul>
+		</aside>
+		</div><!-- #second .widget-area -->
 	
 		<div id="footer-sidebar-three" class="widget-area" role="complementary">
 		<aside id="meta-3" class="widget widget_meta">

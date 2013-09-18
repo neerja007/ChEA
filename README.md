@@ -2,12 +2,14 @@ This readme should be updated regularly. Please feel free to add or update conte
 
 Checklist : (according to priority)
 
+*problem inserting the photos in the slider..photos r too big..try it out..pics r in home page files..file names-1,2,3,4,5,6,7,8,9,10
+
 *library link to be added in e-resources(neerja)
 *TABS TO BE COPIED(adi)
-*PAGE LAYOUT AND DESIGN TO BE DECIDED
+*PAGE LAYOUT AND DESIGN TO BE DECIDED(adi)//
 *update faculty content
 *google map to be embedded in the contact us (new tab to be added)(neerja)
-*research and consultancy tab to be added in the top(adi)
+*research and consultancy tab to be added in the top(adi)//
 *Projects to be deleted in side tabs(adi) //
 *Shift student activities from people to side tabs(adi)//
 *PHD students to be added in people(adi)//
@@ -20,6 +22,8 @@ Checklist : (according to priority)
 *Redundant and inappropriate content to be removed.(adi)
 *SEARCH links should be implemented
 *login / permissions should be implemented
+
+*logo nt yet confirmed..dont go around n show it to ppl
 
 
 SUGGESTIONS FOR LAYOUT
