@@ -26,10 +26,9 @@ top .site-header -->
 		<hgroup>
 			<!--<h1 class="site-title"><a href="./Home Page_files/Home Page.htm" title="Oxygen" rel="home">Oxygen</a><--h1>
 			<h2 class="site-description"> Minimalistic, mobile-optimized magazine for WordPress.com</h2>-->
-			<h1 class="site-title"><a href="./Home Page_files/Home Page.htm" title="Department of Chemical Engineering" rel="home">Department of Chemical Engineering</a></h1>
-			<h2 class="site-description"> NIT TRICHY </h2>
+			<h1 class="site-title"><a href="./Home Page_files/Home Page.htm" title="Department of Chemical Engineering" rel="home">Department of Chemical Engineering</a><img src="./Home Page_files/l.jpg" width="100" height="100" > </h1>
+			<h2  class="site-description"> NATIONAL INSTITUTE OF TECHNOLOGY TIRUCHIRAPPALLI</h2>
 		</hgroup>
-
 		
 		
 		<nav role="navigation" class="site-navigation main-navigation clear-fix">
