@@ -2,6 +2,30 @@ This readme should be updated regularly. Please feel free to add or update conte
 
 Checklist : (according to priority)
 
+link the pages properly.. no "file:c///"username" etc etc.. should ve "./"pagename" or ../"pagename"
+add the side tags
+add current to certain pages
+remove current from wrong places
+give new photos (workshop) to ajitesh
+get logo from ajitesh
+add workshop page
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 *problem inserting the photos in the slider..photos r too big..try it out..pics r in home page files..file names-1,2,3,4,5,6,7,8,9,10
 
 *library link to be added in e-resources(neerja)
