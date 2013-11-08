@@ -13,8 +13,12 @@ add workshop page
 
 
 
+fix the weird font--neerja
+leave a reply- neerja
+time n stuff to be put in the center thing
 
-
+aspen workshop in slider-aditya
+change tags in homepage.. chea inaugration, guest lecture during inaug, workshop introduction, practical session
 
 
 
